@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     InputAction moveAction;
     InputAction attackAction;
+    InputAction skillAction;
 
     [SerializeField] private float movementSpeed = 10.0f;
     [SerializeField] private Vector3 m_Velocity;
@@ -35,10 +36,14 @@ public class Player : MonoBehaviour
     [SerializeField] private bool m_bIsDeadThisFrame;
     [SerializeField] private bool m_bWasDeadLastFrame;
 
+    int m_AttackIndex;
+    float m_AttackDelay; 
     private Vector3 nearestSplinePoint;
     private Vector3 splineTangent;
 
-    SkillDefinition sk;
+    [SerializeField] public SkillDefinition[] skills;
+    [SerializeField] private SkillDefinition attackSkill;
+    [SerializeField] private SkillDefinition defendSkill;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,11 +55,12 @@ public class Player : MonoBehaviour
         //Cache Input system action references
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
+        skillAction = InputSystem.actions.FindAction("Skill");
 
         m_bWasDeadLastFrame = true;
-        m_bIsDeadThisFrame = false; 
+        m_bIsDeadThisFrame = false;
 
-        sk = owner.GetComponent<SkillDefinition>();
+        //skills[0] = owner.GetComponent<SkillDefinition>();
     }
 
     // Update is called once per frame
@@ -107,25 +113,50 @@ public class Player : MonoBehaviour
 
         }
 
-        if (attackAction.ReadValue<float>() > 0.0f)
-        {
-            sk.TriggerSkill();
-        }
-
 
         Animator animator = this.GetComponent<Animator>();
+
+        if (attackAction.ReadValue<float>() > 0.0f)
+        {
+            m_AttackIndex++; 
+
+            switch (m_AttackIndex)
+            {
+                case 1:
+                    m_AttackDelay = 0.5f; 
+                    break;
+                default:
+                    break; 
+            }
+            animator.SetTrigger("OnAttack");
+        }
+        if(m_AttackDelay > 0.0f)    //TODO: Attack Recast - use Skill interface???
+        {
+            m_AttackDelay -= Time.deltaTime;
+            m_AttackIndex = 0; 
+        }
+        else
+        {
+            animator.ResetTrigger("OnAttack"); 
+        }
+        
+        if(skillAction.ReadValue<float>() > 0.0f)
+        {
+            skills[0].TriggerSkill();
+        }
+
         animator.SetFloat("maxSpeedPercent", m_MaxSpeedPercent);
 
         //If player just died
         if (m_bIsDeadThisFrame == true && m_bWasDeadLastFrame == false)
         {
             animator.SetTrigger("OnDeath");
-            m_bWasDeadLastFrame = true; 
+            m_bWasDeadLastFrame = true;
         }
         //Death loop
         else if (m_bIsDeadThisFrame == true && m_bWasDeadLastFrame == true)
         {
-            animator.ResetTrigger("OnDeath"); 
+            animator.ResetTrigger("OnDeath");
             animator.SetBool("isDead", true);
         }
         //Revival
@@ -133,9 +164,9 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isDead", false);
             m_bIsDeadThisFrame = false;
-            m_bWasDeadLastFrame = false; 
+            m_bWasDeadLastFrame = false;
         }
-        
+
         /*
         Ray ray = new Ray(owner.transform.position, Vector3.down);
         Debug.DrawRay(owner.transform.position, Vector3.down * m_GroundCheckDist, Color.green);

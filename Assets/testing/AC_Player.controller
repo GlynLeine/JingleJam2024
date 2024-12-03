@@ -276,7 +276,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: OnDeath
     m_Type: 9
@@ -675,19 +675,19 @@ AnimatorStateMachine:
     m_Position: {x: 630, y: -90, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 8064787806123826912}
-    m_Position: {x: 340, y: -120, z: 0}
+    m_Position: {x: 390, y: -20, z: 0}
   m_AnyStateTransitions:
   - {fileID: -4631633108641698870}
   - {fileID: -7337530978268938362}
   - {fileID: 6060493935500830597}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 8064787806123826912}
-    second:
-    - {fileID: -6089855161508926378}
   - first: {fileID: 5649046941087386260}
     second:
     - {fileID: 7719990541625088727}
+  - first: {fileID: 8064787806123826912}
+    second:
+    - {fileID: -6089855161508926378}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 690, y: -360, z: 0}
   m_EntryPosition: {x: 300, y: 200, z: 0}
