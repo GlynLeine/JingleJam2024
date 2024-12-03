@@ -55,22 +55,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Directionality: 71.4
     - _Float: 0
-    - _Opacity: 0.144
+    - _Opacity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Wave_0_amplitude: 2
+    - _Wave_0_amplitude: 1
     - _Wave_0_angularity: 0.1
     - _Wave_0_direction: 0
-    - _Wave_0_speed: 0.852
+    - _Wave_0_frequency: 3.4
+    - _Wave_0_length: 0.1
+    - _Wave_0_speed: 0.01
     - _Wave_1_amplitude: 1
     - _Wave_1_direction: 297
     - _Wave_1_speed: 0.5
     - _Wave_angularity: 0.1
+    - _Wave_count: 10
     m_Colors:
-    - _Color: {r: 0.08333, g: 0.5, b: 1, a: 1}
+    - _Color: {r: 0.03368235, g: 0.20530194, b: 0.409, a: 1}
     - _Wave_0_direction: {r: 1, g: 1, b: 0, a: 0}
-    - _Wave_0_tiling: {r: 5, g: 1, b: 0, a: 0}
+    - _Wave_0_tiling: {r: 160.11, g: 1, b: 0, a: 0}
     - _Wave_1_tiling: {r: 3, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

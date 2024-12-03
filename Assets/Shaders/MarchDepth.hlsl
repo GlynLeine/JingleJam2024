@@ -22,10 +22,10 @@ float2 ToScreenSpacePos(float3 viewSpace)
     return result.xy * 0.5 + 0.5;
 }
 
-void MarchDepth_float(float3 rayOrigin, float3 rayDir, out float3 hit)
+void MarchDepth_float(float3 rayOrigin, float3 rayDir, out float2 hit)
 {
     const float marchDist = 5.0;
-    const float stepSize = 0.1;
+    const float stepSize = 0.25;
     
     float2 currentTexCoords = ToScreenSpacePos(rayOrigin);
     float2 nextTexCoords = currentTexCoords;
@@ -51,28 +51,5 @@ void MarchDepth_float(float3 rayOrigin, float3 rayDir, out float3 hit)
         }
     }
 
-    if((hitDist + stepSize) >= marchDist)
-    {
-        hit = float3(currentTexCoords, 0.0);
-        return;
-    }
-
-    for(float j = 0.0; j < stepSize; j += (stepSize * 0.1))
-    {
-        float3 rayPos = rayOrigin + rayDir * (hitDist + j);
-        nextTexCoords = ToScreenSpacePos(rayPos);
-        sampleDepth = SampleDepth(nextTexCoords);
-        float depthDist = abs(rayPos.z - sampleDepth);
-        if(depthDist < prevDepthDist)
-        {
-            currentTexCoords = nextTexCoords;
-            prevDepthDist = depthDist;
-        }
-        else
-        {
-            break;
-        }
-    }
-
-    hit = float3(currentTexCoords, 0.0);
+    hit = currentTexCoords;
 }
