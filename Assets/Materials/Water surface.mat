@@ -55,17 +55,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Directionality: 71.4
+    - _Delta_speed: 0
+    - _Directionality: 6.38
+    - _End_speed: 0.05
     - _Float: 0
     - _Opacity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Wave_0_amplitude: 1
+    - _Wave_0_amplitude: 0.08
     - _Wave_0_angularity: 0.1
     - _Wave_0_direction: 0
     - _Wave_0_frequency: 3.4
-    - _Wave_0_length: 0.1
-    - _Wave_0_speed: 0.01
+    - _Wave_0_length: 0.256
+    - _Wave_0_speed: 0.02
     - _Wave_1_amplitude: 1
     - _Wave_1_direction: 297
     - _Wave_1_speed: 0.5

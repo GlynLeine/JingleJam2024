@@ -12,33 +12,36 @@ float2 RotateTexCoords(float2 texCoords, float angle)
     return mul(texCoords, rMatrix);
 }
 
-void SumFractalWaves_float(float2 texCoords, float waveCount, float time, float directionality, float startDirection, float startSpeed, float startLength, float startAmplitude, out float height, out float3 normal)
+void SumFractalWaves_float(float2 texCoords, float waveCount, float time, float directionality, float endSpeed, float startDirection, float startSpeed, float startLength, float startAmplitude, out float height, out float3 normal)
 {
     height = 0;
-    normal = float3(0.0, 0.0, 0.0);
+    normal = float3(0.0, 0.0, 1.0);
 
     float direction = startDirection * (3.1415926/180.0);
-    float directionChange = directionality * (3.1415926/180.0);
     float speed = startSpeed;
     float waveLength = startLength;
     float amplitude = startAmplitude;
 
-    for(float i = 0; i < waveCount; i++)
+    float deltaSpeed = (endSpeed - startSpeed) / trunc(waveCount);
+
+    for(float i = 0; i < trunc(waveCount); i++)
     {
-        float2 waveAxis = RotateTexCoords(texCoords, direction);
+        float2 waveMovement = RotateTexCoords(texCoords, direction);
+        float2 waveAxis = RotateTexCoords(float2(1.0, 0.0), direction) * float2(-1.0, 1.0);
         float k = 6.2831853 / waveLength;
-        float input = k * (float2(dot(waveAxis, float2(1.0, 0.0)), dot(waveAxis, float2(0.0, 1.0))) + speed.xx * time);
-        float wave = amplitude * exp(sin(input.x) - 1.0);
-        float2 waveDerivative = normalize(waveAxis) * amplitude * exp(cos(input) - (1.0).xx);
+        float input = k * (dot(waveMovement, float2(1.0, 0.0)) + speed.xx * time);
+        float wave = amplitude * exp(sin(input) - 1.0);
+        float2 waveDerivative = waveAxis * amplitude * exp(sin(input) - 1.0) * cos(input);
 
         height += wave;
-        normal += float3(waveDerivative.x, waveDerivative.y, sqrt(1.0 - dot(waveDerivative, waveDerivative)));
+        normal += float3(waveDerivative, 0.0);
 
-        direction += directionChange * (i * ((i % 2) * 2.0 - 1.0));
-        speed *= 1.1;
+        direction += (i * 1.23456) * directionality;
+        speed += deltaSpeed;
         waveLength *= 0.9;
         amplitude *= 0.9;
     }
 
-    normal = normalize(normal);
+    height /= trunc(waveCount);
+    normal /= trunc(waveCount);
 }
