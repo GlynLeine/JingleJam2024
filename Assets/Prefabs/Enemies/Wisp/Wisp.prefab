@@ -62,8 +62,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6967089713678759758}
-  - component: {fileID: 9144119477245987935}
+  - component: {fileID: 1389596491133123988}
   - component: {fileID: 1662852654637195432}
+  - component: {fileID: 9144119477245987935}
   m_Layer: 0
   m_Name: Wisp
   m_TagString: Untagged
@@ -88,6 +89,60 @@ Transform:
   - {fileID: 8018711802836417670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389596491133123988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009894420648145261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78cd2ca0bbb6c842996dede4af9649a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enemyData: {fileID: 0}
+  m_targetDetector:
+    m_searchRadius: 10
+    m_orbitRadius: 5
+    m_playerMask:
+      serializedVersion: 2
+      m_Bits: 128
+--- !u!114 &1662852654637195432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009894420648145261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: 1007053970699473369, guid: 064b7457616bc334e833bc2c1c2ad066, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 8214157890533982623
+  - rid: 8214157890533982624
+  references:
+    version: 2
+    RefIds:
+    - rid: 8214157890533982623
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 1009894420648145261}
+    - rid: 8214157890533982624
+      type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6437982827098548937
+          m_Value1: 3500699996249708342
+        Name: Wisp
+        m_Value: {fileID: 1389596491133123988}
 --- !u!195 &9144119477245987935
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -110,32 +165,6 @@ NavMeshAgent:
   m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1662852654637195432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009894420648145261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Graph: {fileID: 1007053970699473369, guid: 064b7457616bc334e833bc2c1c2ad066, type: 2}
-  m_BlackboardVariableOverridesList:
-  - rid: 8214157863854801200
-  references:
-    version: 2
-    RefIds:
-    - rid: 8214157863854801200
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 1009894420648145261}
 --- !u!1 &3179712701760251698
 GameObject:
   m_ObjectHideFlags: 0

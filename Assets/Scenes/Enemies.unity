@@ -127,79 +127,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801205]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801247]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801205].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801247].Name
-      value: TargetDectector
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801205].m_Value
-      value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801247].m_Value
-      value: 
-      objectReference: {fileID: 1243262521}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801205
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801247
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801205].GUID.m_Value0
-      value: 10178567761950359899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801205].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801247].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801247].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -241,45 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1243262521}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
 --- !u!1001 &114366467
 PrefabInstance:
@@ -289,79 +184,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801204]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801249]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801204].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801249].Name
-      value: TargetDectector
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801204].m_Value
-      value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801249].m_Value
-      value: 
-      objectReference: {fileID: 1420879297}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801204
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801249
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801204].GUID.m_Value0
-      value: 10178567761950359899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801204].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801249].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801249].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,45 +228,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1420879297}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
 --- !u!1 &198842093
 GameObject:
@@ -759,27 +549,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 66950d86663031945a3facb6bf7e5dfe, type: 2}
   m_BuildHeightMesh: 0
---- !u!1 &389268968 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 1228641327}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &389268976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389268968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &491468223
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,27 +598,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &679002308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 1754486239}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &679002316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679002308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1001 &855138633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -858,79 +606,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801201]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801248]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801201].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801248].Name
-      value: TargetDectector
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801201].m_Value
-      value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801248].m_Value
-      value: 
-      objectReference: {fileID: 1423291241}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801201
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801248
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801201].GUID.m_Value0
-      value: 10178567761950359899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801201].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801248].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801248].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -972,45 +650,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1423291241}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
 --- !u!1001 &997462835
 PrefabInstance:
@@ -1020,79 +663,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801202]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801244]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801202].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801244].Name
-      value: TargetDectector
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801202].m_Value
-      value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801244].m_Value
-      value: 
-      objectReference: {fileID: 1920349576}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801202
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801202].GUID.m_Value0
-      value: 10178567761950359899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801202].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801244].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801244].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1134,45 +707,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1920349576}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
 --- !u!1 &1000999155
 GameObject:
@@ -1327,48 +865,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &1002399457 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 1657457383}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1002399465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002399457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
---- !u!1 &1115920620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
+--- !u!195 &1115920633 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
   m_PrefabInstance: {fileID: 2193454608332412905}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1115920631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115920620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1001 &1228641327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1377,79 +878,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801206]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801246]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801206].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801246].Name
-      value: TargetDectector
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801206].m_Value
-      value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801246].m_Value
-      value: 
-      objectReference: {fileID: 389268976}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801206
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801246
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801206].GUID.m_Value0
-      value: 10178567761950359899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801206].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801246].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801246].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1491,67 +922,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 389268976}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
---- !u!1 &1243262513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 63429625}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1243262521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243262513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &1373807637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,48 +1052,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -39.948, z: 0}
---- !u!1 &1420879289 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 114366467}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1420879297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420879289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
---- !u!1 &1423291233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 855138633}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1423291241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423291233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1001 &1657457383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1727,79 +1060,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801203]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801243]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801203].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801243].Name
-      value: TargetDectector
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801203].m_Value
-      value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801243].m_Value
-      value: 
-      objectReference: {fileID: 1002399465}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801203
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801243
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801203].GUID.m_Value0
-      value: 10178567761950359899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801203].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801243].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801243].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1841,45 +1104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1002399465}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
 --- !u!1 &1691660790
 GameObject:
@@ -2139,79 +1367,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801207]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801245]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801207].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801245].Name
-      value: TargetDectector
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801207].m_Value
-      value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801245].m_Value
-      value: 
-      objectReference: {fileID: 679002316}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801207
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801245
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801207].GUID.m_Value0
-      value: 10178567761950359899
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801207].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801245].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801245].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2253,67 +1411,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 679002316}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
---- !u!1 &1920349568 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 997462835}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1920349576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920349568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df74a341cd2b74e8906dace53531a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_searchRadius: 5
-  m_playerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1001 &2193454608332412905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2322,79 +1424,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893743944088954867, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp
       objectReference: {fileID: 0}
-    - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
+    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
+      propertyPath: 'managedReferences[8214157890533982916]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent,
+        UnityEngine.AIModule]]'
       objectReference: {fileID: 0}
     - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157863854801208]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157867324801242]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[TargetDetector,
-        Assembly-CSharp]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801208].Name
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801242].Name
-      value: TargetDectector
+      propertyPath: managedReferences[8214157890533982916].Name
+      value: NavMeshAgent
       objectReference: {fileID: 0}
     - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_BlackboardVariableOverridesList.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801208].m_Value
+      propertyPath: managedReferences[8214157890533982916].m_Value
       value: 
-      objectReference: {fileID: 198842094}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801242].m_Value
-      value: 
-      objectReference: {fileID: 1115920631}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
-      value: 8214157863854801208
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1115920633}
     - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157867324801242
+      value: 8214157890533982916
       objectReference: {fileID: 0}
     - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801208].GUID.m_Value0
-      value: 10178567761950359899
+      propertyPath: managedReferences[8214157890533982916].GUID.m_Value0
+      value: 6467925082935888958
       objectReference: {fileID: 0}
     - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157863854801208].GUID.m_Value1
-      value: 101336229859022173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801242].GUID.m_Value0
-      value: 2424436221988527818
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157867324801242].GUID.m_Value1
-      value: 15283754682467533250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179712701760251698, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952400545598067675, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
+      propertyPath: managedReferences[8214157890533982916].GUID.m_Value1
+      value: 14993514003291847418
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2436,45 +1497,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7544399146647776914, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_AutoBraking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_Acceleration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1115920631}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
