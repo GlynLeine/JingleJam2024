@@ -688,7 +688,7 @@ MonoBehaviour:
     m_Knots:
     - Position:
         x: 0
-        y: 0
+        y: 42.95
         z: 0
       TangentIn:
         x: 0
@@ -711,17 +711,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -29.757307
+        z: -32.42547
       TangentOut:
         x: 0
         y: 0
-        z: 55.37523
+        z: 56.518074
       Rotation:
         value:
-          x: 6.499892e-21
-          y: -0.61307544
-          z: -8.375925e-21
-          w: 0.79002446
+          x: 0.11161182
+          y: -0.62076586
+          z: 0.087342635
+          w: 0.77107966
     - Position:
         x: -320
         y: 0
@@ -847,7 +847,7 @@ Transform:
   m_GameObject: {fileID: 883558152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -985,6 +985,7 @@ GameObject:
   - component: {fileID: 1493306596}
   - component: {fileID: 1493306595}
   - component: {fileID: 1493306599}
+  - component: {fileID: 1493306600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1032,11 +1033,14 @@ MonoBehaviour:
   movementSpeed: 10
   m_Velocity: {x: 0, y: 0, z: 0}
   m_GroundCheckDist: 0.05
-  m_SmoothTime: 560
-  m_CameraSplineDist: 5
+  m_SmoothTime: 526.1
+  m_CameraSplineDist: 20
+  m_MaxSpeedPercent: 0
   m_CameraOffset: {x: 0, y: 8, z: 0}
   m_Skills:
   - {fileID: 0}
+  m_bIsDeadThisFrame: 0
+  m_bWasDeadLastFrame: 0
 --- !u!54 &1493306597
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1102,6 +1106,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1493306600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493306594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd20453af571f24fac36b2b3033335f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: 02b0cf6148184a149ace3e3c27c1d9ad, type: 2}
 --- !u!1 &2059971126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1244,7 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 1
   m_Method: 1
-  m_Duration: 60.442356
+  m_Duration: 60.906174
   m_MaxSpeed: 24.9
   m_EasingMode: 0
   m_AlignmentMode: 1

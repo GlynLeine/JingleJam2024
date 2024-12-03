@@ -27,16 +27,18 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector3 m_Velocity;
     [SerializeField] private float m_GroundCheckDist = 5.0f;
     [SerializeField] private float m_SmoothTime = 560.0f;
-    [SerializeField] private float m_CameraSplineDist = 0.50f;
+    [SerializeField] private float m_CameraSplineDist = 10.0f;
+    [SerializeField] private float m_MaxSpeedPercent = 0.00f;
 
     [SerializeField] private Vector3 m_CameraOffset;
-    [SerializeField] public Skill[] m_Skills; 
-    private bool m_bIsGrounded;
-    private bool m_bIsJumping;
+    [SerializeField] public Skill[] m_Skills;
+    [SerializeField] private bool m_bIsDeadThisFrame;
+    [SerializeField] private bool m_bWasDeadLastFrame;
 
     private Vector3 nearestSplinePoint;
     private Vector3 splineTangent;
 
+    SkillDefinition sk;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,7 +50,11 @@ public class Player : MonoBehaviour
         //Cache Input system action references
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
-        m_bIsJumping = false;
+
+        m_bWasDeadLastFrame = true;
+        m_bIsDeadThisFrame = false; 
+
+        sk = owner.GetComponent<SkillDefinition>();
     }
 
     // Update is called once per frame
@@ -56,7 +62,8 @@ public class Player : MonoBehaviour
     {
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
 
-        if (moveValue.magnitude > 0.05f)
+        m_MaxSpeedPercent = moveValue.magnitude;
+        if (moveValue.magnitude > 0.2f)
         {
             m_Velocity = (camera.transform.forward * moveValue.y + camera.transform.right * moveValue.x);
             if (m_Velocity.magnitude > 1.0f)
@@ -81,6 +88,7 @@ public class Player : MonoBehaviour
 
             SplineUtility.GetNearestPoint<Spline>(s, owner.transform.position, out nearest, out t);
             nearestSplinePoint = SplineUtility.EvaluatePosition<Spline>(s, t);
+            nearestSplinePoint += spline.transform.position;
             splineTangent = SplineUtility.EvaluateTangent<Spline>(s, t);
 
         }
@@ -89,19 +97,45 @@ public class Player : MonoBehaviour
         float distToNearestSplinePoint = Vector3.Distance(owner.transform.position, nearestSplinePoint);
         if (distToNearestSplinePoint < m_CameraSplineDist)
         {
-            camera.transform.position = nearestSplinePoint + m_CameraOffset;
-            camera.transform.rotation = Quaternion.FromToRotation(Vector3.forward, splineTangent.normalized); 
+            Vector3 camTgtPos = nearestSplinePoint + m_CameraOffset;
+            camera.transform.position = Vector3.Slerp(owner.transform.position, camTgtPos, distToNearestSplinePoint / m_CameraSplineDist);
+            camera.transform.rotation = Quaternion.FromToRotation(Vector3.forward, splineTangent.normalized);
         }
         else
         {
             camera.transform.position = new Vector3(m_CameraOffset.x + owner.transform.position.x, m_CameraOffset.y + owner.transform.position.y, m_CameraOffset.z + owner.transform.position.z);
+
         }
 
-        if(attackAction.ReadValue<float>() > 0.0f)
+        if (attackAction.ReadValue<float>() > 0.0f)
         {
-            Animator animator = owner.GetComponent<Animator>();
-            animator.Play("dummyAnim");
+            sk.TriggerSkill();
         }
+
+
+        Animator animator = this.GetComponent<Animator>();
+        animator.SetFloat("maxSpeedPercent", m_MaxSpeedPercent);
+
+        //If player just died
+        if (m_bIsDeadThisFrame == true && m_bWasDeadLastFrame == false)
+        {
+            animator.SetTrigger("OnDeath");
+            m_bWasDeadLastFrame = true; 
+        }
+        //Death loop
+        else if (m_bIsDeadThisFrame == true && m_bWasDeadLastFrame == true)
+        {
+            animator.ResetTrigger("OnDeath"); 
+            animator.SetBool("isDead", true);
+        }
+        //Revival
+        else if (m_bIsDeadThisFrame == false && m_bWasDeadLastFrame == true)
+        {
+            animator.SetBool("isDead", false);
+            m_bIsDeadThisFrame = false;
+            m_bWasDeadLastFrame = false; 
+        }
+        
         /*
         Ray ray = new Ray(owner.transform.position, Vector3.down);
         Debug.DrawRay(owner.transform.position, Vector3.down * m_GroundCheckDist, Color.green);
@@ -183,33 +217,33 @@ public class Player : MonoBehaviour
         */
     }
 
-        /*
-    public void DebugAnimCallback()
-    {
-         * 
-        Debug.Log("Hello, from Anim!");
-        Skill sk = Object.Instantiate(m_Skills[0], owner.transform);
-        sk.gameObject.SetActive(true); 
-        VisualEffect vfx = sk.gameObject.GetComponent<VisualEffect>();
+    /*
+public void DebugAnimCallback()
+{
+     * 
+    Debug.Log("Hello, from Anim!");
+    Skill sk = Object.Instantiate(m_Skills[0], owner.transform);
+    sk.gameObject.SetActive(true); 
+    VisualEffect vfx = sk.gameObject.GetComponent<VisualEffect>();
 
-        StartCoroutine(WaitForVFXCompletion(vfx));
-    }
+    StartCoroutine(WaitForVFXCompletion(vfx));
+}
 
-    IEnumerator WaitForVFXCompletion(VisualEffect vfx)
-    {
-        yield return new WaitUntil(() => vfx.HasAnySystemAwake() == false);
-        Debug.Log("Destroying VFX!");
-        vfx.gameObject.SetActive(false);
-        Object.Destroy(vfx.gameObject); 
-    }
+IEnumerator WaitForVFXCompletion(VisualEffect vfx)
+{
+    yield return new WaitUntil(() => vfx.HasAnySystemAwake() == false);
+    Debug.Log("Destroying VFX!");
+    vfx.gameObject.SetActive(false);
+    Object.Destroy(vfx.gameObject); 
+}
 
-    IEnumerator Example()
-    {
-        Debug.Log("Waiting for princess to be rescued...");
-        yield return new WaitUntil(() => 1 >= 10);
-        Debug.Log("Princess was rescued!");
-    }
-        */
+IEnumerator Example()
+{
+    Debug.Log("Waiting for princess to be rescued...");
+    yield return new WaitUntil(() => 1 >= 10);
+    Debug.Log("Princess was rescued!");
+}
+    */
 
 
 }
