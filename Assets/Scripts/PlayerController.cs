@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private EPlayerState m_StateLastFrame;
     [SerializeField] private uint m_AttackIndex;    //Which normal attack are we on?
 
-    [SerializeField] private Vector3 m_LookDirection;   //Where are we oriented towards?
+    [SerializeField] private Vector3 m_LookDirection = Vector3.forward;   //Where are we oriented towards?
     private Dictionary<EInputActions, InputAction> m_InputActionMappings = new Dictionary<EInputActions, InputAction>();     //Store a map of action types to indices
 
     [SerializeField] private float m_MovementDeadzone; //Minimum magnitude of the movement vector
@@ -98,7 +98,9 @@ public class PlayerController : MonoBehaviour
         }
 
         m_StateThisFrame = EPlayerState.Alive;
-        m_StateLastFrame = EPlayerState.Alive; 
+        m_StateLastFrame = EPlayerState.Alive;
+
+        m_DbgAbility = (Ability)ScriptableObject.Instantiate(m_DbgAbility);     //Create an instance of the ability, from the "blueprint" specified. 
     }
 
     private void Update()
@@ -115,6 +117,8 @@ public class PlayerController : MonoBehaviour
         {
             m_DbgAbility.Activate(this.gameObject); 
         }
+
+        m_DbgAbility.Tick(Time.deltaTime); 
 
     }
 

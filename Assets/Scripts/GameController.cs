@@ -5,7 +5,7 @@ using UnityEngine.Splines;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private float m_TickRateSeconds = 0.2f;
+    [SerializeField] public static float m_TickRateSeconds = 0.2f;
     private float m_Accumulator;
 
     PlayerController m_PlayerController;
@@ -48,7 +48,8 @@ public class GameController : MonoBehaviour
         {
             Vector3 m_CamTgtPos = nearestSplinePoint + m_CameraOffset;
             m_Camera.transform.position = Vector3.Slerp(m_PlayerRef.transform.position, m_CamTgtPos, distToNearestSplinePoint / m_CameraSplineDist);
-            m_Camera.transform.rotation = Quaternion.FromToRotation(Vector3.forward, splineTangent.normalized);
+            Vector3 tangent = splineTangent.normalized; 
+            m_Camera.transform.rotation = Quaternion.FromToRotation(Vector3.forward,new Vector3(tangent.x, 0.0f, tangent.z));
         }
         else
         {
@@ -59,10 +60,15 @@ public class GameController : MonoBehaviour
     {
         //Accumulate Deltatime until a tick
         m_Accumulator += Time.deltaTime;
-        if (m_Accumulator > m_TickRateSeconds)
+        while (m_Accumulator > m_TickRateSeconds)
         {
-            m_Accumulator = 0.0f;
+            m_Accumulator -= m_TickRateSeconds;
             m_PlayerController.Tick();
         }
+    }
+
+    public static float GetTickRate()
+    {
+        return m_TickRateSeconds;
     }
 }

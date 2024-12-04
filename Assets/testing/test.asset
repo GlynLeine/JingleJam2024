@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fc73763932dc2479e285be57aeb081, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  type: 0
+  type: 5
+  status: 0
   name: 
   description: 
   animationName: 
