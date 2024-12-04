@@ -28,7 +28,6 @@ public abstract class Enemy : MonoBehaviour
     protected void Start()
     {
         if (m_isDead) return;
-        m_targetDetector.Start();
         m_graphAgent.Start();
         Initialize();
     }
@@ -36,7 +35,6 @@ public abstract class Enemy : MonoBehaviour
     protected void Update()
     {
         if (m_isDead) return;
-        m_targetDetector.Update(transform);
         m_graphAgent.Graph.Tick();
         OnUpdate();
 

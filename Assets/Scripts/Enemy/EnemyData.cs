@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+[CreateAssetMenu(fileName = "EnemyData", menuName = "Enemies/EnemyData", order = 1)]
 public class EnemyData : ScriptableObject
 {
     public float Health = 100f;

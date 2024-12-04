@@ -16,33 +16,29 @@ public class TargetDetector
 
     private Vector3 m_positionOnEnter;
     public Vector3 PositionOnEnter => m_positionOnEnter;
-    private Transform m_currentTarget = null;
-    public Transform CurrentTarget => m_currentTarget;
-    public bool IsWithinRadius => m_currentTarget != null;
+    private bool m_isWithinRadius = false;
+    public bool IsWithinRadius => m_isWithinRadius; 
     private bool m_isWithinOrbitRadius = false;
     public bool IsWithinOrbitRadius => m_isWithinOrbitRadius;
 
-    public void Start()
+    public Transform FindTarget(Transform transform)
     {
-
-    }
-
-    public void Update(Transform transform)
-    {
+        Transform target = null;
         Collider[] cols = new Collider[1];
         int numCols = Physics.OverlapSphereNonAlloc(transform.position, m_searchRadius, cols, m_playerMask);
         if (numCols > 0)
         {
-            m_currentTarget = cols[0].transform;
-            m_positionOnEnter = m_currentTarget.position - transform.position;
+            target = cols[0].transform;
+            m_positionOnEnter = target.position - transform.position;
+            m_isWithinRadius = true;
         }
         else
         {
-            m_currentTarget = null;
+            m_isWithinRadius = false;
             m_positionOnEnter = Vector3.zero;
         }
 
-        if (IsWithinRadius)
+        if (m_isWithinRadius)
         {
             cols = new Collider[1];
             numCols = Physics.OverlapSphereNonAlloc(transform.position, m_orbitRadius, cols, m_playerMask);
@@ -51,19 +47,20 @@ public class TargetDetector
         else
             m_isWithinOrbitRadius = false;
 
+        return target;
     }
 
 #if UNITY_EDITOR
     public void OnDrawGizmos(Transform transform)
     {
-        if (IsWithinRadius)
+        if (m_isWithinRadius)
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawLine(transform.position, transform.position + Vector3.right);
             Gizmos.DrawLine(transform.position, transform.position + m_positionOnEnter);
         }
 
-        Gizmos.color = IsWithinRadius ? Color.green : Color.red;
+        Gizmos.color = m_isWithinRadius ? Color.green : Color.red;
         Gizmos.DrawWireSphere(transform.position, m_searchRadius);
 
         Gizmos.color = IsWithinOrbitRadius ? Color.green : Color.magenta;
