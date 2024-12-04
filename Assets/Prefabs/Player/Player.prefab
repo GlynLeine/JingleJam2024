@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365c2b6d136de6e4da2f4744cdc0a44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Health: 0
-  m_MaxHealth: 0
+  m_Health: 5067
+  m_MaxHealth: 96
   m_HealthRegenPerTick: 0
   m_Stamina: 0
   m_MaxStamina: 0
@@ -165,7 +165,8 @@ MonoBehaviour:
     isEnabled: 1
   m_bCanMove: 1
   m_bIsBlocking: 0
-  m_State: 0
+  m_StateThisFrame: 0
+  m_StateLastFrame: 0
   m_AttackIndex: 0
   m_LookDirection: {x: 0, y: 0, z: 0}
   m_MovementDeadzone: 0.2

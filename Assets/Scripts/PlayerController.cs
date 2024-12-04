@@ -20,10 +20,9 @@ public enum EInputActions
 
 public enum EPlayerState
 {
-    Alive = 0,
-    Just_Died,
+    None = 0,
+    Alive,
     Dead,
-    Reviving,
     EPlayerState_MAX
 }
 
@@ -62,7 +61,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool m_bCanMove;   //Is the player allowed to move?
     [SerializeField] private bool m_bIsBlocking;
-    [SerializeField] private EPlayerState m_State;
+    [SerializeField] private EPlayerState m_StateThisFrame; 
+    [SerializeField] private EPlayerState m_StateLastFrame;
     [SerializeField] private uint m_AttackIndex;    //Which normal attack are we on?
 
     [SerializeField] private Vector3 m_LookDirection;   //Where are we oriented towards?
@@ -72,16 +72,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool m_bCanRotate;
     [SerializeField] private float m_RotationSpeed;
 
+    [SerializeField] private Ability m_DbgAbility; 
 
     private void Start()
     {
         //Cache a reference to the player's stats
-        m_Stats = this.GetComponent<Stats>();
+        m_Stats = this.gameObject.GetComponent<Stats>();
         m_LookDirection = Vector3.zero;  //initially look "nowhere"
 
         //Cache references to required components / objects 
-        m_Rigidbody = this.GetComponent<Rigidbody>();
-        m_CapsuleCollider = this.GetComponent<CapsuleCollider>();
+        m_Rigidbody = this.gameObject.GetComponent<Rigidbody>();
+        m_CapsuleCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
         // m_IAMovement = InputSystem.actions.FindAction("Move");
 
@@ -93,13 +94,40 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.LogWarning("Duplicate Action Mapping detected: This was probably unintended [" + i + "]");
             }
+
         }
+
+        m_StateThisFrame = EPlayerState.Alive;
+        m_StateLastFrame = EPlayerState.Alive; 
     }
 
     private void Update()
     {
+        //m_Stats = this.GetComponent<Stats>();
+        if (!CheckDeathState())
+        {
+            PlayerDeath();
+        }
+
         ProcessMovement();
 
+        if(InputSystem.actions.FindAction("Attack").ReadValue<float>() > 0.0f)
+        {
+            m_DbgAbility.Activate(this.gameObject); 
+        }
+
+    }
+
+    private void LateUpdate()
+    {
+        m_StateLastFrame = m_StateThisFrame;
+        m_StateThisFrame = EPlayerState.None;  
+    }
+
+    public void Tick()
+    {
+        Debug.Log("Tick!\n");
+        m_Stats.Tick(); 
     }
 
     private void OnDrawGizmos()
@@ -131,6 +159,36 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    private bool CheckDeathState()
+    {
+        //Test to see whether the player died.
+        //Debug.Log(m_Stats.m_Health);
+        if(m_StateLastFrame == EPlayerState.Alive && m_Stats.m_Health <= 0)
+        {
+            m_StateThisFrame = EPlayerState.Dead;
+            return false; 
+        }
+        if(m_Stats.m_Health > 0)
+        {
+            m_StateThisFrame = EPlayerState.Alive; 
+        }
+        if(m_StateThisFrame == EPlayerState.None)
+        {
+            Debug.LogWarning("Player state was none!");
+        }
+
+        return true; 
+    }
+
+    private void PlayerDeath()
+    {
+        Debug.Log("Player Death!\n");
+        //Todo: Trigger a Death animation etc...
+        m_StateThisFrame = EPlayerState.Alive;  //For now, just set them back to being alive again. 
+
+
+    }
 
     private void ProcessMovement()
     {
@@ -178,4 +236,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public Vector3 GetLookAtDirection()
+    {
+        return m_LookDirection; 
+    }
 }
