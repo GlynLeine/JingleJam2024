@@ -40,7 +40,7 @@ public class Ability_Projectile : Ability
             projectile.name = this.name + "_projectile";
             projectile.gameObject.layer = owner.layer;
 
-            VisualEffect.Instantiate(vfx, projectile.transform); 
+            //VisualEffect.Instantiate(vfx, projectile.transform); 
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.VFX;
 
 public enum EInputActions
 {

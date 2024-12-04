@@ -2,6 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using static UnityEngine.UI.GridLayoutGroup;
 using UnityEngine.Splines;
+using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject m_Camera;
     [SerializeField] private Vector3 m_CameraOffset;
     [SerializeField] private float m_CameraSplineDist = 50.0f;
+    [SerializeField] private float m_CameraSpeed = 4.0f;
     [SerializeField] private GameObject spline;
     private Vector3 nearestSplinePoint;
     private Vector3 splineTangent;
@@ -47,13 +49,15 @@ public class GameController : MonoBehaviour
         if (distToNearestSplinePoint < m_CameraSplineDist)
         {
             Vector3 m_CamTgtPos = nearestSplinePoint + m_CameraOffset;
-            m_Camera.transform.position = Vector3.Slerp(m_PlayerRef.transform.position, m_CamTgtPos, distToNearestSplinePoint / m_CameraSplineDist);
+            m_Camera.transform.position = Vector3.Lerp(m_CamTgtPos, m_PlayerRef.transform.position + m_CameraOffset, distToNearestSplinePoint / m_CameraSplineDist);
             Vector3 tangent = splineTangent.normalized; 
-            m_Camera.transform.rotation = Quaternion.FromToRotation(Vector3.forward,new Vector3(tangent.x, 0.0f, tangent.z));
+            m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.gameObject.transform.rotation, Quaternion.FromToRotation(Vector3.forward,new Vector3(tangent.x, 0.0f, tangent.z)), distToNearestSplinePoint / m_CameraSplineDist);
         }
         else
         {
             m_Camera.transform.position = new Vector3(m_CameraOffset.x + m_PlayerRef.transform.position.x, m_CameraOffset.y + m_PlayerRef.transform.position.y, m_CameraOffset.z + m_PlayerRef.transform.position.z);
+            float cur = m_Camera.transform.eulerAngles.y;
+            m_Camera.transform.rotation =  Quaternion.Euler(0.0f, cur + InputSystem.actions.FindAction("Look").ReadValue<Vector2>().x * m_CameraSpeed * Time.deltaTime, 0.0f); 
         }
     }
     void LateUpdate()

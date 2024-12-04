@@ -82,5 +82,6 @@ public class Ability : ScriptableObject
             status = EAbilityStatus.In_Execution;
         }
         */
+
     }
 }
