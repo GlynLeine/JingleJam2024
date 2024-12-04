@@ -1,0 +1,8 @@
+Assets/Terrain/TFF_Terrain_Sand_1A_D.tif filter=lfs diff=lfs merge=lfs -text
+Assets/Terrain/TFF_Terrain_Grass_1A_D.tif filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/Demo_Scene_Lake_3.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/Demo_Scene_Lake_2.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/Demo_Scene_Lake_1.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/Demo_Scene_Field.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/Demo_Scene_Pines_1.unity filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/Demo_Scene_Hill.unity filter=lfs diff=lfs merge=lfs -text
