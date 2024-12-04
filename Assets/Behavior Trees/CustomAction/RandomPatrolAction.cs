@@ -22,9 +22,8 @@ public partial class RandomPatrolAction : Action
         if (navAgent.isActiveAndEnabled && navAgent.remainingDistance < 0.5f)
         {
             navAgent.SetDestination(wispTransf.position + Vector3.ProjectOnPlane(UnityEngine.Random.onUnitSphere * 5.0f, Vector3.up));
-            return Status.Success;
         }
-        return Status.Running;
+        return Status.Success;
     }
 
     protected override void OnEnd()
