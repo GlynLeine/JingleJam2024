@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using Unity.Hierarchy;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -7,36 +8,37 @@ public enum EAbilityType
 {
     None = 0,
     Passive,
-    Target_Self, 
-    Projectile, 
-    Circle_AoE, 
-    Line_AoE, 
+    Target_Self,
+    Projectile,
+    Circle_AoE,
+    Line_AoE,
     Cone_AoE,
     EAbilityType_MAX
 }
 
 public enum EAbilityStatus
 {
-    Ready = 0, 
-    In_Execution, 
-    In_Cooldown, 
+    Ready = 0,
+    In_Execution,
+    In_Cooldown,
     EAbilityStatus_MAX
 }
 
 [CreateAssetMenu(fileName = "Ability", menuName = "Abilities/")]
 public class Ability : ScriptableObject
 {
-    public EAbilityType type;
+    public virtual EAbilityType type => EAbilityType.None;
+    [ReadOnly]
     public EAbilityStatus status;
-    public string name; 
+    public string name;
     public string description;
     public string animationName;
-    public VisualEffect vfx;
+    public VisualEffectAsset vfx;
     public float castTimer = 0.0f;
     public float castTime = 0.0f;
     public float recastTimer = 0.0f;
     public float recastTime = 0.0f;
-    private float executionTimer = 0.0f; 
+    private float executionTimer = 0.0f;
 
     public virtual void Tick(float dt)
     {
@@ -61,7 +63,7 @@ public class Ability : ScriptableObject
             case EAbilityStatus.In_Cooldown:
                 if (recastTimer <= 0.0f)
                 {
-                    status = EAbilityStatus.Ready; 
+                    status = EAbilityStatus.Ready;
                     executionTimer = castTime;
                     recastTimer = recastTime;
                     break;
@@ -75,13 +77,6 @@ public class Ability : ScriptableObject
 
     public virtual void Activate(GameObject owner)
     {
-        Debug.Log(name + " Activated");
-        /*
-        if(status == EAbilityStatus.Ready)
-        {
-            status = EAbilityStatus.In_Execution;
-        }
-        */
 
     }
 }

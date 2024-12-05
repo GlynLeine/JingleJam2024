@@ -10,7 +10,7 @@ public class TargetDetector
 
     [SerializeField]
     private float m_orbitRadius = 7.0f;
-    public float OrbitRadius => m_searchRadius;
+    public float OrbitRadius => m_orbitRadius;
     [SerializeField]
     private LayerMask m_playerMask;
 

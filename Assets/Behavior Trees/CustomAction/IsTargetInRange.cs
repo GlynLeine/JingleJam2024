@@ -12,7 +12,7 @@ public partial class IsTargetInRangeAction : Action
     [SerializeReference] public BlackboardVariable<Transform> Target;
     protected override Status OnUpdate()
     {
-        Target.Value = Wisp.Value.GetTarget();
+        Target.Value = Wisp.Value.Target;
         return Status.Success;
     }
 }

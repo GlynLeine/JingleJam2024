@@ -18,8 +18,10 @@ public partial class RandomPatrolAction : Action
     protected override Status OnUpdate()
     {
         var navAgent = Wisp.Value.NavAgent;
+        navAgent.enabled = true;
+        navAgent.stoppingDistance = 1.0f;
         var wispTransf = Wisp.Value.transform;
-        if (navAgent.isActiveAndEnabled && navAgent.remainingDistance < 0.5f)
+        if (navAgent.remainingDistance < 0.5f)
         {
             navAgent.SetDestination(wispTransf.position + Vector3.ProjectOnPlane(UnityEngine.Random.onUnitSphere * 5.0f, Vector3.up));
         }
