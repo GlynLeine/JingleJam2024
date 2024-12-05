@@ -19,7 +19,7 @@ MonoBehaviour:
   - rid: 8214157863854801101
   - rid: 8214157863854801104
   - rid: 8214157886982980460
-  m_VersionTimestamp: 638689503274453777
+  m_VersionTimestamp: 638690340762735014
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 6274734430477852053}
@@ -95,9 +95,9 @@ MonoBehaviour:
   - rid: 8214157890889974464
   - rid: 8214157890889974465
   - rid: 8214157890889974539
-  - rid: 8214157910027534740
   - rid: 8214157912773755322
-  m_VersionTimestamp: 638689503274453777
+  - rid: 8214157934464860831
+  m_VersionTimestamp: 638690340762735014
   m_DebugInfo: {fileID: -2982986419955488992}
   AssetID:
     m_Value0: 3802000576254069510
@@ -132,12 +132,12 @@ MonoBehaviour:
       Tooltip: 
     NamedChildren: []
   - Name: WispAttack
-    Story: '[Wips] does Attack'
+    Story: '[Wisp] attacks'
     RuntimeTypeID:
       m_Value0: 806701317120036461
       m_Value1: 480766187134136452
     Variables:
-    - Name: Wips
+    - Name: Wisp
       Type:
         m_SerializableType: Wisp, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
@@ -180,13 +180,6 @@ MonoBehaviour:
         m_SerializableType: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       Tooltip: 
-    NamedChildren: []
-  - Name: Run In Parallel
-    Story: 
-    RuntimeTypeID:
-      m_Value0: 6216542881172158703
-      m_Value1: 2191282456596108218
-    Variables: []
     NamedChildren: []
   - Name: WispMovesToTarget
     Story: '[Wisp] move to [Target]'
@@ -291,7 +284,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157867324801646
         LinkedVariable:
-          rid: 8214157912773755433
+          rid: 8214157935111831992
     - rid: 8214157867324801646
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -303,11 +296,12 @@ MonoBehaviour:
     - rid: 8214157889844019236
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -142.33875, y: 759.56964}
+        Position: {x: -335.41425, y: 763.73395}
         ID:
           m_Value0: 9372924725772221758
           m_Value1: 8574459447335729864
-        Parents: []
+        Parents:
+        - rid: 8214157934464860831
         PortModels:
         - rid: 8214157889844019237
         - rid: 8214157889844019238
@@ -318,7 +312,7 @@ MonoBehaviour:
           m_Value0: 806701317120036461
           m_Value1: 480766187134136452
         m_FieldValues:
-        - rid: 8214157889844019239
+        - rid: 8214157925510283429
     - rid: 8214157889844019237
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -327,8 +321,7 @@ MonoBehaviour:
         m_IsFloating: 0
         m_NodeModel:
           rid: 8214157889844019236
-        m_Connections:
-        - rid: 8214157910027534742
+        m_Connections: []
     - rid: 8214157889844019238
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -338,25 +331,6 @@ MonoBehaviour:
         m_NodeModel:
           rid: 8214157889844019236
         m_Connections: []
-    - rid: 8214157889844019239
-      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        FieldName: Wips
-        Type:
-          m_SerializableType: Wisp, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-        LocalValue:
-          rid: 8214157889844019244
-        LinkedVariable:
-          rid: 8214157912773755432
-    - rid: 8214157889844019244
-      type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {fileID: 0}
     - rid: 8214157889844019404
       type: {class: BranchingConditionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -530,7 +504,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890533982388
         LinkedVariable:
-          rid: 8214157912773755432
+          rid: 8214157935111831991
     - rid: 8214157890533982388
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -587,7 +561,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890533983001
         LinkedVariable:
-          rid: 8214157912773755432
+          rid: 8214157935111831991
     - rid: 8214157890533983001
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -599,7 +573,7 @@ MonoBehaviour:
     - rid: 8214157890889974463
       type: {class: BranchingConditionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -47.77176, y: 398.18356}
+        Position: {x: -48.884277, y: 399.29608}
         ID:
           m_Value0: 15327546063102465061
           m_Value1: 15878270569519450045
@@ -617,15 +591,15 @@ MonoBehaviour:
         m_FieldValues: []
         <ConditionModels>k__BackingField:
         - ConditionType:
-            m_SerializableType: IsOrbiitngCondition, Assembly-CSharp, Version=0.0.0.0,
+            m_SerializableType: CanOrbitCondition, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           ConditionTypeID:
-            m_Value0: 16851657906576453633
-            m_Value1: 4115457196277091978
+            m_Value0: 5051173347307029441
+            m_Value1: 8236155775717946969
           NodeModel:
             rid: 8214157890889974463
           m_FieldValues:
-          - rid: 8214157890889974501
+          - rid: 8214157934464860654
           OperatorFieldModel:
             rid: -2
         <RequiresAllConditionsTrue>k__BackingField: 0
@@ -633,7 +607,7 @@ MonoBehaviour:
     - rid: 8214157890889974464
       type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
-        Position: {x: -225.37888, y: 563.5875}
+        Position: {x: -160.52383, y: 560.7263}
         ID:
           m_Value0: 15589676078251246920
           m_Value1: 1010825314084194320
@@ -709,7 +683,7 @@ MonoBehaviour:
         m_NodeModel:
           rid: 8214157890889974464
         m_Connections:
-        - rid: 8214157910027534741
+        - rid: 8214157934464860832
     - rid: 8214157890889974471
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -730,35 +704,6 @@ MonoBehaviour:
           rid: 8214157890889974465
         m_Connections:
         - rid: 8214157912773755323
-    - rid: 8214157890889974501
-      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        FieldName: Wisp
-        Type:
-          m_SerializableType: Wisp, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-        LocalValue:
-          rid: 8214157890889974502
-        LinkedVariable:
-          rid: 8214157890889974538
-    - rid: 8214157890889974502
-      type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {fileID: 0}
-    - rid: 8214157890889974538
-      type: {class: 'TypedVariableModel`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 6437982827098548937
-          m_Value1: 3500699996249708342
-        Name: Wisp
-        IsExposed: 1
-        m_IsShared: 0
-        m_Value: {fileID: 0}
     - rid: 8214157890889974539
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -766,7 +711,8 @@ MonoBehaviour:
         ID:
           m_Value0: 5720482620601026354
           m_Value1: 15526547256472099852
-        Parents: []
+        Parents:
+        - rid: 8214157934464860831
         PortModels:
         - rid: 8214157890889974540
         - rid: 8214157890889974541
@@ -787,8 +733,7 @@ MonoBehaviour:
         m_IsFloating: 0
         m_NodeModel:
           rid: 8214157890889974539
-        m_Connections:
-        - rid: 8214157910027534742
+        m_Connections: []
     - rid: 8214157890889974541
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -808,7 +753,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890889974544
         LinkedVariable:
-          rid: 8214157912773755432
+          rid: 8214157935111831991
     - rid: 8214157890889974543
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -819,7 +764,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890889974545
         LinkedVariable:
-          rid: 8214157912773755433
+          rid: 8214157935111831992
     - rid: 8214157890889974544
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -836,46 +781,6 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: {fileID: 0}
-    - rid: 8214157910027534740
-      type: {class: RunInParallelNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        Position: {x: -224.9465, y: 664.19684}
-        ID:
-          m_Value0: 7865687611151133753
-          m_Value1: 12695611109686944184
-        Parents: []
-        PortModels:
-        - rid: 8214157910027534741
-        - rid: 8214157910027534742
-        NodeType:
-          m_SerializableType: Unity.Behavior.ParallelAllComposite, Unity.Behavior,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        NodeTypeID:
-          m_Value0: 6216542881172158703
-          m_Value1: 2191282456596108218
-        m_FieldValues: []
-        m_Mode: 0
-    - rid: 8214157910027534741
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: InputPort
-        m_PortDataFlowType: 0
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 8214157910027534740
-        m_Connections:
-        - rid: 8214157890889974470
-    - rid: 8214157910027534742
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: OutputPort
-        m_PortDataFlowType: 1
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 8214157910027534740
-        m_Connections:
-        - rid: 8214157890889974540
-        - rid: 8214157889844019237
     - rid: 8214157912773755322
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -925,7 +830,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157912773755330
         LinkedVariable:
-          rid: 8214157912773755432
+          rid: 8214157935111831991
     - rid: 8214157912773755326
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -936,7 +841,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157912773755331
         LinkedVariable:
-          rid: 8214157912773755433
+          rid: 8214157935111831992
     - rid: 8214157912773755330
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -953,7 +858,26 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: {fileID: 0}
-    - rid: 8214157912773755432
+    - rid: 8214157925510283429
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Wisp
+        Type:
+          m_SerializableType: Wisp, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        LocalValue:
+          rid: 8214157925510283432
+        LinkedVariable:
+          rid: 8214157935111831991
+    - rid: 8214157925510283432
+      type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 8214157934464860635
       type: {class: 'TypedVariableModel`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -963,7 +887,69 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 8214157912773755433
+    - rid: 8214157934464860654
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Wisp
+        Type:
+          m_SerializableType: Wisp, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        LocalValue:
+          rid: 8214157934464860655
+        LinkedVariable:
+          rid: 8214157934464860635
+    - rid: 8214157934464860655
+      type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 8214157934464860831
+      type: {class: SequenceNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -162.2262, y: 688.62225}
+        ID:
+          m_Value0: 8707117553240964954
+          m_Value1: 3553856860696554486
+        Parents: []
+        PortModels:
+        - rid: 8214157934464860832
+        - rid: 8214157934464860833
+        Nodes:
+        - rid: 8214157890889974539
+        - rid: 8214157889844019236
+    - rid: 8214157934464860832
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8214157934464860831
+        m_Connections:
+        - rid: 8214157890889974470
+    - rid: 8214157934464860833
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 8214157934464860831
+        m_Connections: []
+    - rid: 8214157935111831991
+      type: {class: 'TypedVariableModel`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 6437982827098548937
+          m_Value1: 3500699996249708342
+        Name: Wisp
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 8214157935111831992
       type: {class: 'TypedVariableModel`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -986,102 +972,102 @@ MonoBehaviour:
   m_Name: WispAI
   m_EditorClassIdentifier: 
   Graphs:
-  - rid: 8214157912773755434
+  - rid: 8214157935111831973
   RootGraph:
-    rid: 8214157912773755434
+    rid: 8214157935111831973
   m_DebugInfo: {fileID: -2982986419955488992}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 8214157912773755434
+    - rid: 8214157935111831973
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
           m_Value0: 3802000576254069510
           m_Value1: 7408467687522448360
-        m_DebugInfo: {fileID: 0}
+        m_DebugInfo: {fileID: -2982986419955488992}
         Root:
-          rid: 8214157912773755435
+          rid: 8214157935111831974
         BlackboardReference:
-          rid: 8214157912773755436
+          rid: 8214157935111831975
         BlackboardGroupReferences: []
-        m_VersionTimestamp: 638689503274453777
-    - rid: 8214157912773755435
+        m_VersionTimestamp: 638690340762735014
+    - rid: 8214157935111831974
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 3998440911343582938
           m_Value1: 679921245477073983
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
           rid: -2
         m_Child:
-          rid: 8214157912773755437
+          rid: 8214157935111831976
         Repeat: 1
-    - rid: 8214157912773755436
+    - rid: 8214157935111831975
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Blackboard:
-          rid: 8214157912773755438
+          rid: 8214157935111831977
         m_Source: {fileID: 6274734430477852053}
-    - rid: 8214157912773755437
+    - rid: 8214157935111831976
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 3719084279764150303
           m_Value1: 16300088702069024779
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755435
+          rid: 8214157935111831974
         m_Children:
-        - rid: 8214157912773755439
-        - rid: 8214157912773755440
-    - rid: 8214157912773755438
+        - rid: 8214157935111831978
+        - rid: 8214157935111831979
+    - rid: 8214157935111831977
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 8214157912773755441
-        - rid: 8214157912773755442
-        - rid: 8214157912773755443
-    - rid: 8214157912773755439
+        - rid: 8214157935111831980
+        - rid: 8214157935111831981
+        - rid: 8214157935111831982
+    - rid: 8214157935111831978
       type: {class: IsTargetInRangeAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 3719084279764150303
           m_Value1: 16300088702069024779
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755437
+          rid: 8214157935111831976
         Wisp:
-          rid: 8214157912773755443
+          rid: 8214157935111831982
         Target:
-          rid: 8214157912773755442
-    - rid: 8214157912773755440
+          rid: 8214157935111831981
+    - rid: 8214157935111831979
       type: {class: BranchingConditionComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 13960427010067196156
           m_Value1: 7384545347131187203
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755437
+          rid: 8214157935111831976
         m_Children:
-        - rid: 8214157912773755444
-        - rid: 8214157912773755445
+        - rid: 8214157935111831983
+        - rid: 8214157935111831984
         m_Conditions:
-        - rid: 8214157912773755446
+        - rid: 8214157935111831985
         m_RequiresAllConditions: 0
         True:
-          rid: 8214157912773755444
+          rid: 8214157935111831983
         False:
-          rid: 8214157912773755445
-    - rid: 8214157912773755441
+          rid: 8214157935111831984
+    - rid: 8214157935111831980
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -1089,7 +1075,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 8214157912773755442
+    - rid: 8214157935111831981
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -1097,7 +1083,7 @@ MonoBehaviour:
           m_Value1: 101336229859022173
         Name: Target
         m_Value: {fileID: 0}
-    - rid: 8214157912773755443
+    - rid: 8214157935111831982
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -1105,105 +1091,105 @@ MonoBehaviour:
           m_Value1: 3500699996249708342
         Name: Wisp
         m_Value: {fileID: 0}
-    - rid: 8214157912773755444
+    - rid: 8214157935111831983
       type: {class: BranchingConditionComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 15327546063102465061
           m_Value1: 15878270569519450045
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755440
+          rid: 8214157935111831979
         m_Children:
-        - rid: 8214157912773755447
-        - rid: 8214157912773755448
+        - rid: 8214157935111831986
+        - rid: 8214157935111831987
         m_Conditions:
-        - rid: 8214157912773755449
+        - rid: 8214157935111831988
         m_RequiresAllConditions: 0
         True:
-          rid: 8214157912773755447
+          rid: 8214157935111831986
         False:
-          rid: 8214157912773755448
-    - rid: 8214157912773755445
+          rid: 8214157935111831987
+    - rid: 8214157935111831984
       type: {class: RandomPatrolAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 5406522031370164274
           m_Value1: 14762294662552449660
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755440
+          rid: 8214157935111831979
         Wisp:
-          rid: 8214157912773755443
-    - rid: 8214157912773755446
+          rid: 8214157935111831982
+    - rid: 8214157935111831985
       type: {class: HasTargetCondition, ns: , asm: Assembly-CSharp}
       data:
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         Target:
-          rid: 8214157912773755442
-    - rid: 8214157912773755447
-      type: {class: ParallelAllComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+          rid: 8214157935111831981
+    - rid: 8214157935111831986
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 7865687611151133753
-          m_Value1: 12695611109686944184
+          m_Value0: 8707117553240964954
+          m_Value1: 3553856860696554486
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755444
+          rid: 8214157935111831983
         m_Children:
-        - rid: 8214157912773755450
-        - rid: 8214157912773755451
-    - rid: 8214157912773755448
+        - rid: 8214157935111831989
+        - rid: 8214157935111831990
+    - rid: 8214157935111831987
       type: {class: WispMovesToTargetAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 16961522932029088155
           m_Value1: 7952793564836815385
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755444
+          rid: 8214157935111831983
         Wisp:
-          rid: 8214157912773755443
+          rid: 8214157935111831982
         Target:
-          rid: 8214157912773755442
-    - rid: 8214157912773755449
-      type: {class: IsOrbiitngCondition, ns: , asm: Assembly-CSharp}
+          rid: 8214157935111831981
+    - rid: 8214157935111831988
+      type: {class: CanOrbitCondition, ns: , asm: Assembly-CSharp}
       data:
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         Wisp:
-          rid: 8214157912773755443
-    - rid: 8214157912773755450
+          rid: 8214157935111831982
+    - rid: 8214157935111831989
       type: {class: OrbitAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 5720482620601026354
           m_Value1: 15526547256472099852
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755447
+          rid: 8214157935111831986
         Wisp:
-          rid: 8214157912773755443
+          rid: 8214157935111831982
         Target:
-          rid: 8214157912773755442
-    - rid: 8214157912773755451
+          rid: 8214157935111831981
+    - rid: 8214157935111831990
       type: {class: WispAttackAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
           m_Value0: 9372924725772221758
           m_Value1: 8574459447335729864
         Graph:
-          rid: 8214157912773755434
+          rid: 8214157935111831973
         m_Parent:
-          rid: 8214157912773755447
-        Wips:
-          rid: 8214157912773755443
+          rid: 8214157935111831986
+        Wisp:
+          rid: 8214157935111831982
 --- !u!114 &6274734430477852053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,20 +1202,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: WispAI Blackboard Editor
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638689503274453777
+  VersionTimestamp: 638690340762735014
   AssetID:
     m_Value0: 3802000576254069510
     m_Value1: 7408467687522448360
   m_Blackboard:
     m_Variables:
-    - rid: 8214157912773755371
-    - rid: 8214157912773755372
-    - rid: 8214157912773755373
+    - rid: 8214157934464860852
+    - rid: 8214157934464860853
+    - rid: 8214157934464860854
   m_SharedBlackboardVariableGuids: []
   references:
     version: 2
     RefIds:
-    - rid: 8214157912773755371
+    - rid: 8214157934464860852
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -1237,7 +1223,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 8214157912773755372
+    - rid: 8214157934464860853
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -1245,7 +1231,7 @@ MonoBehaviour:
           m_Value1: 101336229859022173
         Name: Target
         m_Value: {fileID: 0}
-    - rid: 8214157912773755373
+    - rid: 8214157934464860854
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
