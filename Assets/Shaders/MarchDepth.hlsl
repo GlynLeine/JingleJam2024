@@ -1,55 +1,83 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
 
-float SampleDepth(float2 texcoords)
+float SampleDepth(uint2 texcoords)
 {
-    if (unity_OrthoParams.w == 1.0)
-    {
-        return LinearEyeDepth(ComputeWorldSpacePosition(texcoords, SampleSceneDepth(texcoords), UNITY_MATRIX_I_VP), UNITY_MATRIX_V) * _ProjectionParams.x;
-    }
-    else
-    {
-        return LinearEyeDepth(SampleSceneDepth(texcoords), _ZBufferParams) * _ProjectionParams.x;
-    }
+    float2 colorScale = 0.5 / _CameraOpaqueTexture_TexelSize.xy;
+    float2 depthScale = 0.5 / _CameraDepthTexture_TexelSize.xy;
+    
+    texcoords = (uint2) round((texcoords - colorScale) / colorScale * depthScale + depthScale);
+    
+    return LinearEyeDepth(LoadSceneDepth(texcoords), _ZBufferParams) * _ProjectionParams.x;
 }
 
-float2 ToScreenSpacePos(float3 viewSpace)
+uint2 ToScreenSpacePos(float3 viewSpace)
 {
     float4 result = mul(UNITY_MATRIX_P, float4(viewSpace, 1.0));
     result.xy = result.xy / result.w;
 #if UNITY_UV_STARTS_AT_TOP
     result.y = -result.y;
 #endif
-    return result.xy * 0.5 + 0.5;
+    float2 screenScale = 0.5 / _CameraOpaqueTexture_TexelSize.xy;
+    
+    return (uint2) round(result.xy * screenScale + screenScale);
 }
 
-void MarchDepth_float(float3 rayOrigin, float3 rayDir, out float2 hit)
+uint2 RoundParam(float2 val)
 {
-    const float marchDist = 5.0;
-    const float stepSize = 0.25;
-    
-    float2 currentTexCoords = ToScreenSpacePos(rayOrigin);
-    float2 nextTexCoords = currentTexCoords;
-    float sampleDepth = SampleDepth(currentTexCoords);
+    float2 dirSign = sign(val);
+    return (uint2)(dirSign * floor(dirSign * val) + dirSign);
+}
 
-    float hitDist = 0.0;
-    float prevDepthDist = abs(rayOrigin.z - sampleDepth);
-    for(float i = stepSize; i < marchDist; i += stepSize)
+float4 MarchDepth(float3 rayOrigin, float3 rayDir, float comparisonSign)
+{
+    const float distanceBias = 0.05;
+    const float marchDist = 20.0;
+    const float stepSize = 0.2;
+    const float backtrackDist = stepSize;
+    const float backtrackStepSize = backtrackDist * 0.1;
+    const int iterationCount = (int)round(marchDist / stepSize);
+    
+    uint2 currentTexel;
+    float3 rayStep = rayDir * stepSize;
+    float3 rayPos = rayOrigin;
+    float depthDist;
+    
+    float validResult = 0.0;
+    int i = 0;
+    for (; i < iterationCount; i++)
     {
-        float3 rayPos = rayOrigin + rayDir * i;
-        nextTexCoords = ToScreenSpacePos(rayPos);
-        sampleDepth = SampleDepth(nextTexCoords);
-        float depthDist = abs(rayPos.z - sampleDepth);
-        if(depthDist < prevDepthDist)
+        currentTexel = ToScreenSpacePos(rayPos);
+        float sampleDepth = SampleDepth(currentTexel);
+        
+        depthDist = (rayPos.z - sampleDepth) * comparisonSign;
+        if (abs(depthDist) < distanceBias)
         {
-            currentTexCoords = nextTexCoords;
-            hitDist = i;
-            prevDepthDist = depthDist;
+            return float4(LoadSceneColor(currentTexel), 1.0);
         }
-        else
+        
+        if (depthDist < 0.0)
         {
+            validResult = 1.0;
             break;
         }
+        
+        rayPos += rayStep;
     }
-
-    hit = currentTexCoords;
+    
+    for (; i < iterationCount; i++)
+    {
+        rayStep *= 0.5;
+        rayPos -= rayStep * sign(depthDist);
+			
+        currentTexel = ToScreenSpacePos(rayPos);
+        float sampleDepth = SampleDepth(currentTexel);
+        depthDist = (rayPos.z - sampleDepth) * comparisonSign;
+			
+        if (abs(depthDist) < distanceBias)
+        {
+            return float4(LoadSceneColor(currentTexel), 1.0);
+        }
+    }
+    
+    return float4(LoadSceneColor(currentTexel), validResult);
 }
