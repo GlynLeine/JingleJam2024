@@ -7,6 +7,7 @@ Shader "Toon/TFF_Board_Cutout"
 		[HideInInspector] _AlphaCutoff("Alpha Cutoff ", Range(0, 1)) = 0.5
 		[HideInInspector] _EmissionColor("Emission Color", Color) = (1,1,1,1)
 		_ColorOverlay("Color Overlay", Color) = (0,0,0,0)
+		_AmbientLightIntensity("Ambient Light Intensity", Range(0, 1)) = 0.5
 		_TextureSample0("Texture Sample 0", 2D) = "white" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 
@@ -247,6 +248,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _ColorOverlay;
+			float _AmbientLightIntensity;
 			float4 _TextureSample0_ST;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
@@ -259,8 +261,11 @@ Shader "Toon/TFF_Board_Cutout"
 			CBUFFER_END
 
 			sampler2D _TextureSample0;
-
-
+			
+			float3 ASEIndirectDiffuse(float3 normalWS )
+			{
+				return SampleSH(normalWS);
+			}
 			
 			PackedVaryings VertexFunction( Attributes input  )
 			{
@@ -416,10 +421,10 @@ Shader "Toon/TFF_Board_Cutout"
 				#endif
 
 				float2 uv_TextureSample0 = input.ase_texcoord4.xy * _TextureSample0_ST.xy + _TextureSample0_ST.zw;
-				
+								
 				float3 BakedAlbedo = 0;
 				float3 BakedEmission = 0;
-				float3 Color = _ColorOverlay.rgb;
+				float3 Color = _ColorOverlay.rgb * _MainLightColor.rgb + _ColorOverlay.rgb * ASEIndirectDiffuse(float3(0.0, 1.0, 0.0)) * _AmbientLightIntensity;
 				float Alpha = tex2D( _TextureSample0, uv_TextureSample0 ).a;
 				float AlphaClipThreshold = 0.5;
 				float AlphaClipThresholdShadow = 0.5;
@@ -516,6 +521,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _ColorOverlay;
+			float _AmbientLightIntensity;
 			float4 _TextureSample0_ST;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
@@ -778,6 +784,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _ColorOverlay;
+			float _AmbientLightIntensity;
 			float4 _TextureSample0_ST;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
@@ -1014,6 +1021,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _ColorOverlay;
+			float _AmbientLightIntensity;
 			float4 _TextureSample0_ST;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
@@ -1241,6 +1249,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _ColorOverlay;
+			float _AmbientLightIntensity;
 			float4 _TextureSample0_ST;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
@@ -1476,6 +1485,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _ColorOverlay;
+			float _AmbientLightIntensity;
 			float4 _TextureSample0_ST;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
@@ -1726,6 +1736,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _ColorOverlay;
+			float _AmbientLightIntensity;
 			float4 _TextureSample0_ST;
 			#ifdef ASE_TRANSMISSION
 				float _TransmissionShadow;

@@ -544,7 +544,7 @@ Shader "Toon/TFF_CustomToonVegetation"
 				float ase_lightAtten = 0;
 				ase_lightAtten = ase_mainLight.distanceAttenuation * ase_mainLight.shadowAttenuation;
 				float ase_lightIntensity = max( max( _MainLightColor.r, _MainLightColor.g ), _MainLightColor.b );
-				float4 ase_lightColor = float4( _MainLightColor.rgb / ase_lightIntensity, ase_lightIntensity );
+				float4 ase_lightColor = float4( _MainLightColor.rgb, ase_lightIntensity );
 				float3 temp_output_119_0 = ( ase_lightAtten * ase_lightColor.rgb * ase_lightColor.a );
 				float dotResult124 = dot( ase_worldNormal , _MainLightPosition.xyz );
 				float temp_output_127_0 = (dotResult124*0.495 + 0.5);

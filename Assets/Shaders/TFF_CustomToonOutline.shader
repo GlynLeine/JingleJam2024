@@ -785,7 +785,7 @@ Shader "Toon/TFF_CustomToonOutline"
 				float ase_lightAtten = 0;
 				ase_lightAtten = ase_mainLight.distanceAttenuation * ase_mainLight.shadowAttenuation;
 				float ase_lightIntensity = max( max( _MainLightColor.r, _MainLightColor.g ), _MainLightColor.b );
-				float4 ase_lightColor = float4( _MainLightColor.rgb / ase_lightIntensity, ase_lightIntensity );
+				float4 ase_lightColor = float4( _MainLightColor.rgb, ase_lightIntensity );
 				float3 temp_output_71_0 = ( ase_lightAtten * ase_lightColor.rgb * ase_lightColor.a );
 				float3 temp_cast_2 = (1.0).xxx;
 				#ifdef UNITY_PASS_FORWARDBASE
