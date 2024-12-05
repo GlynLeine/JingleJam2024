@@ -50,7 +50,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _FoamDistance: 0.025
+    - _FoamDistance: 0.01
     - _FoamHardness: 0.123
     - _FoamOpacity: 0.432
     - _FoamScale: 0.38

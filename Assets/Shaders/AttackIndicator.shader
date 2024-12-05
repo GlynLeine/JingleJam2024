@@ -308,7 +308,7 @@ Shader "Custom/AttackIndicator"
                 float _Property_08d91bd053dd4adaa4ab48a6ee03f17f_Out_0_Float = _Cone_Radius;
                 float _GetIndicatorAlphaCustomFunction_5e154b031c9e4a279055af401ac86484_Alpha_0_Float;
                 GetIndicatorAlpha_float((_UV_5bb86fd7388a42fa8703a82f5f4b7485_Out_0_Vector4.xy), _Branch_8b8fb7fb682e4c3085c3d4f5dca4f2c9_Out_3_Float, _Property_5c0270d63bd54ef09fd68f7f82b56442_Out_0_Float, _Branch_5088f004afaf4755a058342c27f1ff31_Out_3_Float, _Property_08d91bd053dd4adaa4ab48a6ee03f17f_Out_0_Float, _GetIndicatorAlphaCustomFunction_5e154b031c9e4a279055af401ac86484_Alpha_0_Float);
-                surface.BaseColor = (_Property_889a7e484b074c8ca4c877e34e9dcc91_Out_0_Vector4.xyz);
+                surface.BaseColor = (_Property_889a7e484b074c8ca4c877e34e9dcc91_Out_0_Vector4.xyz) * _GetIndicatorAlphaCustomFunction_5e154b031c9e4a279055af401ac86484_Alpha_0_Float;
                 surface.Alpha = _GetIndicatorAlphaCustomFunction_5e154b031c9e4a279055af401ac86484_Alpha_0_Float;
                 surface.AlphaClipThreshold = float(0);
                 return surface;

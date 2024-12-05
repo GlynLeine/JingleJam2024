@@ -21,7 +21,7 @@ float circleAlpha(float2 texcoord, float2 scale, float fill, float coneRadius)
     float scaledFullLineWidth = FULL_LINE_WIDTH * lineScale;
     float lineWidth = circleRadius * scaledFullLineWidth;
 
-    float fillfade = saturate(smoothstep(0.0, circleRadius, radiusCoord) * 0.4);
+    float fillfade = saturate(smoothstep(0.0, circleRadius, radiusCoord) * 0.25);
 
     float fillEdgeLine = step(circleRadius - lineWidth, radiusCoord);
     float fillAreaExclude = step(radiusCoord, circleRadius);
@@ -82,7 +82,7 @@ float rectAlpha(float2 texcoord, float2 scale, float fill, float useArrow)
     centeredCoords.x = abs(centeredCoords.x);
     centeredCoords.z = abs(centeredCoords.z);
 
-    float fillfade = (animatedCoords.y * animatedCoords.y * 0.5) * FILL_FADE_SIZE - FILL_FADE_OFFSET;
+    float fillfade = ((animatedCoords.y * animatedCoords.y * 0.5) * FILL_FADE_SIZE - FILL_FADE_OFFSET) * 0.75;
 
     // Cut arrow out of the fill.
     if(useArrow > 0.5) {

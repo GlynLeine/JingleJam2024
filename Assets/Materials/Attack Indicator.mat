@@ -50,14 +50,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cone_Radius: 80
-    - _Fill: 0.66
-    - _Is_Circle: 0
+    - _Cone_Radius: 360
+    - _Fill: 1
+    - _Is_Circle: 1
     - _QueueControl: 1
     - _QueueOffset: 0
     - _Use_Arrow: 1
     m_Colors:
-    - _Color: {r: 5.5908804, g: 0, b: 0, a: 0}
+    - _Color: {r: 5.9921565, g: 0, b: 0, a: 0}
     - _Scale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
