@@ -1,16 +1,20 @@
 using System;
 using Unity.Behavior;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [Serializable, Unity.Properties.GeneratePropertyBag]
-[Condition(name: "CanOrbit", story: "[Self] can Orbit", category: "Conditions", id: "60017bd6115d002d24649c7a009ab16c")]
+[Condition(name: "Can Orbit", story: "[Wisp] Can Orbit", category: "Conditions", id: "c10328a9655f19465936737e0ab44c72")]
 public partial class CanOrbitCondition : Condition
 {
-    [SerializeReference] public BlackboardVariable<Wisp> Self;
+    [SerializeReference] public BlackboardVariable<Wisp> Wisp;
 
     public override bool IsTrue()
     {
-        return Self.Value.IsWithinOrbitRadius;
+
+        Wisp.Value.NavAgent.stoppingDistance = Wisp.Value.OrbitRadius;
+        Wisp.Value.NavAgent.enabled = !Wisp.Value.IsWithinOrbitRadius;
+        return Wisp.Value.IsWithinOrbitRadius;
     }
 
     public override void OnStart()

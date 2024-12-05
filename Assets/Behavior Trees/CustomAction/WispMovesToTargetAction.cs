@@ -5,14 +5,15 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "IsTargetInRange", story: "[Wisp] Get [Target]", category: "Action", id: "ce0910481e07ee35b1909accbfcad1a3")]
-public partial class IsTargetInRangeAction : Action
+[NodeDescription(name: "WispMovesToTarget", story: "[Wisp] move to [Target]", category: "Action", id: "cd2eef329ba52283fabf5bebc991ec1a")]
+public partial class WispMovesToTargetAction : Action
 {
     [SerializeReference] public BlackboardVariable<Wisp> Wisp;
     [SerializeReference] public BlackboardVariable<Transform> Target;
-    protected override Status OnUpdate()
+
+    protected override Status OnStart()
     {
-        Target.Value = Wisp.Value.Target;
+        Wisp.Value.NavAgent.SetDestination(Target.Value.position);
         return Status.Success;
     }
 }

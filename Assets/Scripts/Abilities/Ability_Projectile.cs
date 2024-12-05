@@ -4,6 +4,7 @@ using UnityEngine.VFX;
 [CreateAssetMenu(fileName = "Ability_Projectile", menuName = "Abilities/Projectile")]
 public class Ability_Projectile : Ability
 {
+    public override EAbilityType type => EAbilityType.Projectile;
     public Vector3 direction;
     public float speed;
     public float size;

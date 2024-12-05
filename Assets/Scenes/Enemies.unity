@@ -259,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 198842093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4, y: 2, z: 2.01}
+  m_LocalPosition: {x: -30.15, y: 2, z: -16.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -865,11 +865,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!195 &1115920633 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 9144119477245987935, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-  m_PrefabInstance: {fileID: 2193454608332412905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1228641327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1427,35 +1422,6 @@ PrefabInstance:
     - target: {fileID: 1009894420648145261, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_Name
       value: Wisp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'managedReferences[8214157890533982916]'
-      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent,
-        UnityEngine.AIModule]]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157890533982916].Name
-      value: NavMeshAgent
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157890533982916].m_Value
-      value: 
-      objectReference: {fileID: 1115920633}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8214157890533982916
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157890533982916].GUID.m_Value0
-      value: 6467925082935888958
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662852654637195432, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
-      propertyPath: managedReferences[8214157890533982916].GUID.m_Value1
-      value: 14993514003291847418
       objectReference: {fileID: 0}
     - target: {fileID: 6967089713678759758, guid: 19a619029f13dc54ebb5c9a41413a2fb, type: 3}
       propertyPath: m_LocalPosition.x

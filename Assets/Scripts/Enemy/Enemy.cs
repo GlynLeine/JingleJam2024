@@ -2,7 +2,7 @@ using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
 {
     [SerializeField]
     protected EnemyData m_enemyData;
@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
     protected NavMeshAgent m_navAgent;
     public NavMeshAgent NavAgent => m_navAgent;
     protected bool m_isDead = false;
+    public Transform Target => m_targetDetector.FindTarget(transform);
 
     protected abstract void Initialize();
     protected abstract void OnUpdate();
@@ -28,7 +29,6 @@ public abstract class Enemy : MonoBehaviour
     protected void Start()
     {
         if (m_isDead) return;
-        m_targetDetector.Start();
         m_graphAgent.Start();
         Initialize();
     }
@@ -36,7 +36,6 @@ public abstract class Enemy : MonoBehaviour
     protected void Update()
     {
         if (m_isDead) return;
-        m_targetDetector.Update(transform);
         m_graphAgent.Graph.Tick();
         OnUpdate();
 
@@ -46,6 +45,10 @@ public abstract class Enemy : MonoBehaviour
             OnDeath();
         }
     }
+
+    public abstract void Attack();
+
+    public abstract void TakeDamage();
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
