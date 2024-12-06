@@ -284,7 +284,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157867324801646
         LinkedVariable:
-          rid: 8214157935111831992
+          rid: 8214157956720099329
     - rid: 8214157867324801646
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -504,7 +504,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890533982388
         LinkedVariable:
-          rid: 8214157935111831991
+          rid: 8214157956720099328
     - rid: 8214157890533982388
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -561,7 +561,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890533983001
         LinkedVariable:
-          rid: 8214157935111831991
+          rid: 8214157956720099328
     - rid: 8214157890533983001
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -753,7 +753,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890889974544
         LinkedVariable:
-          rid: 8214157935111831991
+          rid: 8214157956720099328
     - rid: 8214157890889974543
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -764,7 +764,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157890889974545
         LinkedVariable:
-          rid: 8214157935111831992
+          rid: 8214157956720099329
     - rid: 8214157890889974544
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -830,7 +830,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157912773755330
         LinkedVariable:
-          rid: 8214157935111831991
+          rid: 8214157956720099328
     - rid: 8214157912773755326
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -841,7 +841,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157912773755331
         LinkedVariable:
-          rid: 8214157935111831992
+          rid: 8214157956720099329
     - rid: 8214157912773755330
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -868,7 +868,7 @@ MonoBehaviour:
         LocalValue:
           rid: 8214157925510283432
         LinkedVariable:
-          rid: 8214157935111831991
+          rid: 8214157956720099328
     - rid: 8214157925510283432
       type: {class: 'BlackboardVariable`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -939,7 +939,7 @@ MonoBehaviour:
         m_NodeModel:
           rid: 8214157934464860831
         m_Connections: []
-    - rid: 8214157935111831991
+    - rid: 8214157956720099328
       type: {class: 'TypedVariableModel`1[[Wisp, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -949,7 +949,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 8214157935111831992
+    - rid: 8214157956720099329
       type: {class: 'TypedVariableModel`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
