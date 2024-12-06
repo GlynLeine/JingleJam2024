@@ -523,7 +523,7 @@ Shader "Toon/TFF_CustomToon"
 				float4 tex2DNode50 = tex2D( _TextureSample, uv_TextureSample );
 				float3 ase_worldNormal = input.ase_texcoord6.xyz;
 				float3 bakedGI41 = ASEIndirectDiffuse( input.lightmapUVOrVertexSH.xy, ase_worldNormal);
-				Light ase_mainLight = GetMainLight( ShadowCoords );
+				Light ase_mainLight = GetMainLight( ShadowCoords, WorldPosition, half4(1, 1, 1, 1) );
 				MixRealtimeAndBakedGI(ase_mainLight, ase_worldNormal, bakedGI41, half4(0,0,0,0));
 				float ase_lightAtten = 0;
 				ase_lightAtten = ase_mainLight.distanceAttenuation * ase_mainLight.shadowAttenuation;

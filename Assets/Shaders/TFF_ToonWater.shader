@@ -195,7 +195,6 @@ Shader "Toon/TFF_ToonWater"
 
 			#pragma multi_compile_local _ALPHATEST_ON
 			#pragma shader_feature_local _RECEIVE_SHADOWS_OFF
-			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer
 			#define _SURFACE_TYPE_TRANSPARENT 1
 			#pragma multi_compile_fog
@@ -205,22 +204,25 @@ Shader "Toon/TFF_ToonWater"
 			#define ASE_SRP_VERSION 170003
 			#define REQUIRE_DEPTH_TEXTURE 1
 			#define REQUIRE_OPAQUE_TEXTURE 1
-			#define ASE_NEEDS_FRAG_SHADOWCOORDS
-			#pragma multi_compile _ _MIXED_LIGHTING_SUBTRACTIVE
-			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS
-			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
-			#pragma multi_compile _ _SHADOWS_SOFT
 			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-			#pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
-
-			#pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
-			#pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
-			#pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
+            #pragma multi_compile _ SHADOWS_SHADOWMASK
+            #pragma multi_compile _ _LIGHT_LAYERS
+            #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+            #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
+            #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
+            #pragma multi_compile_fragment _ _LIGHT_COOKIES
 
 			#pragma multi_compile _ DIRLIGHTMAP_COMBINED
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
 			#pragma multi_compile_fragment _ DEBUG_DISPLAY
+            #pragma multi_compile_instancing
+            #pragma instancing_options assumeuniformscaling nomatrices nolightprobe nolightmap
 
 			#pragma vertex vert
 			#pragma fragment frag
@@ -252,6 +254,7 @@ Shader "Toon/TFF_ToonWater"
 			#define ASE_NEEDS_VERT_NORMAL
 			#define ASE_NEEDS_FRAG_SCREEN_POSITION
 			#define ASE_NEEDS_FRAG_WORLD_POSITION
+			#define ASE_NEEDS_FRAG_SHADOWCOORDS
 			#pragma shader_feature _WAVES_ON
 
 
@@ -534,7 +537,7 @@ Shader "Toon/TFF_ToonWater"
 				float3 ase_viewDirWS = normalize( ase_viewVectorWS );
 				float3 ase_worldNormal = input.ase_texcoord5.xyz;
 				float fresnelNdotV136 = dot( ase_worldNormal, ase_viewDirWS );
-				float fresnelNode136 = ( 0.0 + 1.0 * pow( 1.0 - fresnelNdotV136, (0.0 + (_FresnelIntensity - 1.0) * (10.0 - 0.0) / (0.0 - 1.0)) ) );
+				float fresnelNode136 = ( 0.0 + 1.0 * pow( max(0.0, 1.0 - fresnelNdotV136), (0.0 + (_FresnelIntensity - 1.0) * (10.0 - 0.0) / (0.0 - 1.0)) ) );
 				float clampResult209 = clamp( fresnelNode136 , 0.0 , 1.0 );
 				float4 lerpResult133 = lerp( lerpResult142 , _FresnelColor , clampResult209);
 				float4 blendOpSrc300 = ( 0.0 * tex2D( _NoiseTexture, lerpResult24.xy ) );
@@ -553,7 +556,7 @@ Shader "Toon/TFF_ToonWater"
 				float temp_output_185_0 = ( ( 1.0 - clampResult207 ) * ( tex2D( _NoiseTexture, ( ( _TimeParameters.x * _FoamSpeed ) + ( texCoord200 * (15.0 + (FoamScale330 - 0.0) * (1.0 - 15.0) / (1.0 - 0.0)) ) ) ).r * (0.0 + (_FoamOpacity - 0.0) * (0.85 - 0.0) / (1.0 - 0.0)) ) );
 				float3 temp_cast_3 = (1.0).xxx;
 
-				Light mainLight = GetMainLight(ShadowCoords);
+				Light mainLight = GetMainLight(ShadowCoords, WorldPosition, half4(1, 1, 1, 1));
 
 				float3 ase_lightColor = mainLight.color.rgb * mainLight.shadowAttenuation;
 				float3 lerpResult7 = lerp( temp_cast_3 , ase_lightColor.rgb , 0.75);
@@ -573,7 +576,7 @@ Shader "Toon/TFF_ToonWater"
 				float3 worldNormal215 = float3(dot(tanToWorld0,tanNormal215), dot(tanToWorld1,tanNormal215), dot(tanToWorld2,tanNormal215));
 
 				float3 reflectionDir = reflect( -normalizeResult232 , worldNormal215 );
-				float dotResult108 = dot( reflectionDir , mainLight.direction.xyz );
+				float dotResult108 = saturate(dot( reflectionDir , mainLight.direction.xyz ));
 
 				float3 Ks = pow( dotResult108 , exp( (0.0 + (_ReflectionsCutoff - 0.0) * (10.0 - 0.0) / (1.0 - 0.0)) ) ) * temp_output_37_0;
 				float3 specularLight = clamp(Ks * ase_lightColor.rgb, float3( 0,0,0 ) , float3( 1,1,1 ) );
