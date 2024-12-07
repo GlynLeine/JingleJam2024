@@ -36,8 +36,8 @@ uint2 RoundParam(float2 val)
 uint3 MarchDepth(float3 rayOrigin, float3 rayDir, float comparisonSign)
 {
     const float distanceBias = 0.05;
-    const float marchDist = 10.0;
-    const float stepSize = 0.1;
+    const float marchDist = 20.0;
+    const float stepSize = 0.2;
     const float backtrackDist = stepSize;
     const float backtrackStepSize = backtrackDist * 0.1;
     const int iterationCount = (int) round(marchDist / stepSize);
@@ -65,12 +65,13 @@ uint3 MarchDepth(float3 rayOrigin, float3 rayDir, float comparisonSign)
         }
         
         rayPos += rayStep;
+        rayStep *= 1.05;
     }
     
     for (; i < iterationCount; i++)
     {
         rayStep *= 0.5;
-        rayPos -= rayStep * sign(depthDist);
+        rayPos += rayStep * sign(depthDist);
 			
         currentTexel = ToScreenSpacePos(rayPos);
         float sampleDepth = SampleDepth(currentTexel);

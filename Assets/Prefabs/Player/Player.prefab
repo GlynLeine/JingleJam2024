@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e26dc2f72cfa454191f630ad076c28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Stats: {fileID: 0}
+  m_Stats: {fileID: 7896980768321917403}
   m_Camera: {fileID: 0}
   m_SkeletalMeshParent: {fileID: 9023006142077745661}
   m_ActionMappings:
