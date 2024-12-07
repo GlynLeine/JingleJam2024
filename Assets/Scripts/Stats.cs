@@ -6,16 +6,16 @@ public class Stats : MonoBehaviour
 {
     #region Health
     [Header("Health Statistics")]
-    [SerializeField] public int m_Health;
-    public int m_MaxHealth;
-    public int m_HealthRegenPerTick;
+    [SerializeField] public float m_Health;
+    public float m_MaxHealth;
+    public float m_HealthRegenPerTick;
     #endregion
 
-    #region Stamina
-    [Header("Stamina Statistics")]
-    public int m_Stamina;
-    public int m_MaxStamina;
-    public int m_StaminaRegenPerTick;
+    #region Mana
+    [Header("Mana Statistics")]
+    public float m_Mana;
+    public float m_MaxMana;
+    public float m_ManaRegenPerTick;
     #endregion
 
     #region Movement
@@ -40,7 +40,7 @@ public class Stats : MonoBehaviour
         //Clamp each stat 
 
         m_Health = Mathf.Clamp(m_Health, 0, m_MaxHealth); 
-        m_Stamina = Mathf.Clamp(m_Stamina, 0, m_MaxStamina); 
+        m_Mana = Mathf.Clamp(m_Mana, 0, m_MaxMana); 
         m_MovementSpeed = Mathf.Clamp(m_MovementSpeed, 0.0f, m_MaxMovementSpeed);
         m_AttackSpeedScale = Mathf.Clamp(m_AttackSpeedScale, 0.0f, 5.0f); 
     }
@@ -48,18 +48,18 @@ public class Stats : MonoBehaviour
     public void Tick()
     {
         m_Health += m_HealthRegenPerTick;
-        m_Stamina += m_StaminaRegenPerTick; 
+        m_Mana += m_ManaRegenPerTick; 
     }
 
     public void Reset()
     {
         m_Health = m_MaxHealth;
-        m_Stamina = m_MaxStamina;
+        m_Mana = m_MaxMana;
         m_MovementSpeed = m_MaxMovementSpeed;
         m_DefenceBonus = 0;
         m_StrengthBonus = 0;
         m_HealthRegenPerTick = 0;
-        m_StaminaRegenPerTick = 0; 
+        m_ManaRegenPerTick = 0; 
     }
 
 }
