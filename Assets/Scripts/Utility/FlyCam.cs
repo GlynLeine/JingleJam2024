@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using NaughtyAttributes;
-using UnityEditor.ShaderGraph.Internal;
 public class FlyCam : MonoBehaviour
 {
     [Header("Movement Settings")]
