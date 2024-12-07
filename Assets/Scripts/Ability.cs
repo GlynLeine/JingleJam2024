@@ -42,7 +42,7 @@ public class Ability : ScriptableObject
 
     public virtual void Tick(float dt)
     {
-        Debug.Log(name + " Tick");
+       // Debug.Log(name + " Tick");
 
         //Set the appropriate skill state
         switch (status)

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -49,9 +51,10 @@ public struct PlayerInputAction
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(AbilityManager))]
 public class PlayerController : MonoBehaviour
 {
-    private Stats m_Stats;
+    public Stats m_Stats;
     private Rigidbody m_Rigidbody;
     private CapsuleCollider m_CapsuleCollider;
 
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool m_bCanMove;   //Is the player allowed to move?
     [SerializeField] private bool m_bIsBlocking;
-    [SerializeField] private EPlayerState m_StateThisFrame; 
+    [SerializeField] private EPlayerState m_StateThisFrame;
     [SerializeField] private EPlayerState m_StateLastFrame;
     [SerializeField] private uint m_AttackIndex;    //Which normal attack are we on?
 
@@ -73,7 +76,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool m_bCanRotate;
     [SerializeField] private float m_RotationSpeed;
 
-    [SerializeField] private Ability m_DbgAbility; 
+    private AbilityManager m_AbilityManager;
 
     private void Start()
     {
@@ -101,7 +104,11 @@ public class PlayerController : MonoBehaviour
         m_StateThisFrame = EPlayerState.Alive;
         m_StateLastFrame = EPlayerState.Alive;
 
-        m_DbgAbility = (Ability)ScriptableObject.Instantiate(m_DbgAbility);     //Create an instance of the ability, from the "blueprint" specified. 
+        m_AbilityManager = GetComponent<AbilityManager>();
+        if (m_AbilityManager.GetAbilityCount() < 3)
+        {
+            Debug.LogError("Player must have 3 abilities bound!");
+        }
     }
 
     private void Update()
@@ -114,25 +121,25 @@ public class PlayerController : MonoBehaviour
 
         ProcessMovement();
 
-        if(InputSystem.actions.FindAction("Attack").ReadValue<float>() > 0.0f)
+        if (InputSystem.actions.FindAction("Attack").ReadValue<float>() > 0.0f)
         {
-            m_DbgAbility.Activate(this.gameObject); 
+            m_AbilityManager.Activate(0);   //Activate the skill at the given index
         }
 
-        m_DbgAbility.Tick(Time.deltaTime); 
+        //m_DbgAbility.Tick(Time.deltaTime); 
 
     }
 
     private void LateUpdate()
     {
         m_StateLastFrame = m_StateThisFrame;
-        m_StateThisFrame = EPlayerState.None;  
+        m_StateThisFrame = EPlayerState.None;
     }
 
     public void Tick()
     {
-        Debug.Log("Tick!\n");
-        m_Stats.Tick(); 
+        //Debug.Log("Tick!\n");
+        m_Stats.Tick();
     }
 
     private void OnDrawGizmos()
@@ -169,30 +176,30 @@ public class PlayerController : MonoBehaviour
     {
         //Test to see whether the player died.
         //Debug.Log(m_Stats.m_Health);
-        if(m_StateLastFrame == EPlayerState.Alive && m_Stats.m_Health <= 0)
+        if (m_StateLastFrame == EPlayerState.Alive && m_Stats.m_Health <= 0)
         {
             m_StateThisFrame = EPlayerState.Dead;
-            return false; 
+            return false;
         }
-        if(m_Stats.m_Health > 0)
+        if (m_Stats.m_Health > 0)
         {
-            m_StateThisFrame = EPlayerState.Alive; 
+            m_StateThisFrame = EPlayerState.Alive;
         }
-        if(m_StateThisFrame == EPlayerState.None)
+        if (m_StateThisFrame == EPlayerState.None)
         {
             Debug.LogWarning("Player state was none!");
         }
 
-        return true; 
+        return true;
     }
 
     private void PlayerDeath()
     {
         Debug.Log("Player Death!\n");
+        m_bCanMove = false;
+        m_bCanRotate = false; 
         //Todo: Trigger a Death animation etc...
-        m_StateThisFrame = EPlayerState.Alive;  //For now, just set them back to being alive again. 
-
-
+        m_StateThisFrame = EPlayerState.Dead; 
     }
 
     private void ProcessMovement()
@@ -220,29 +227,57 @@ public class PlayerController : MonoBehaviour
             //Compute desired velocity
             Vector3 velocity = Vector3.zero;
             velocity = (m_Camera.transform.forward * movementInput.y + m_Camera.transform.right * movementInput.x);
+            //Cache the player's look-at direction
 
-            if (velocity.magnitude > 1.0f)
             {
-                velocity = velocity.normalized;
-            }
+                RaycastHit hit;
+                if (!Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Infinity))
+                {
+                    return;
+                }
 
+                //Snap the player to the ground!
+                // transform.position.Set(transform.position.x, hit.point.y, transform.position.z);
+                float n_dot_v = Vector3.Dot(velocity, hit.normal);
+                velocity = (velocity - hit.normal * n_dot_v);
+
+                if (velocity.magnitude > 1.0f)
+                {
+                    velocity = velocity.normalized;
+                }
+            }
+            m_LookDirection = new Vector3(velocity.x, /*velocity.y*/ 0.0f, velocity.z).normalized;
+
+            /*
+            //Snap the player to the navmesh!
+            {
+                RaycastHit hit; 
+                if(!Physics.Raycast(m_Rigidbody.position + (velocity * m_Stats.m_MovementSpeed * Time.deltaTime), Vector3.down, out hit, Mathf.Infinity))
+                {
+                    return; 
+                }
+
+                if (hit.transform.gameObject.layer != LayerMask.NameToLayer("levelGeometry"))
+                {
+                    return;
+                }
+            }
+             * */
             if (m_bCanMove)
             {
                 m_Rigidbody.MovePosition(m_Rigidbody.position + (velocity * m_Stats.m_MovementSpeed * Time.deltaTime));     //Move the player's rigidbody
             }
             if (m_bCanRotate)
             {
-                //Cache the player's look-at direction
-                m_LookDirection = velocity.normalized;
-
                 //Smoothly rotate the player's Skeletal Mesh towards their target velocity. 
-                m_SkeletalMeshParent.transform.rotation = Quaternion.RotateTowards(m_SkeletalMeshParent.transform.rotation, Quaternion.LookRotation(velocity), m_RotationSpeed * Time.deltaTime);
+                m_SkeletalMeshParent.transform.rotation = Quaternion.RotateTowards(m_SkeletalMeshParent.transform.rotation, Quaternion.LookRotation(m_LookDirection), m_RotationSpeed * Time.deltaTime);
             }
         }
+
     }
 
     public Vector3 GetLookAtDirection()
     {
-        return m_LookDirection; 
+        return m_LookDirection;
     }
 }
