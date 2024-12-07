@@ -20,6 +20,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     public Transform Target => m_targetDetector.FindTarget(transform);
     public float MoveSpeed => m_enemyData.MoveSpeed;
     public bool IsWithinRadius => m_targetDetector.IsWithinRadius;
+    public bool IsWithinattackRadius => m_targetDetector.IsWithinAttackRadius;
+    public float AttackRadius => m_targetDetector.AttackRadius;
+    public bool IsWithinOrbitRadius => m_targetDetector.IsWithinAttackRadius;
 
     protected abstract void Initialize();
     protected abstract void OnUpdate();

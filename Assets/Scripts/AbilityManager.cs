@@ -19,9 +19,8 @@ public class AbilityManager : MonoBehaviour
             Debug.LogError("Invalid Index!");
             return;
         }
-
         //Trigger the requested ability
-        m_Abilities[index].Activate(this.gameObject);
+        m_Abilities[index]?.Activate(gameObject);
     }
 
     // Update is called once per frame

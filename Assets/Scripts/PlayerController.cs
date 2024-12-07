@@ -54,7 +54,8 @@ public struct PlayerInputAction
 [RequireComponent(typeof(AbilityManager))]
 public class PlayerController : MonoBehaviour
 {
-    public Stats m_Stats;
+    private Stats m_Stats;
+    public Stats Stats => m_Stats;
     private Rigidbody m_Rigidbody;
     private CapsuleCollider m_CapsuleCollider;
 
@@ -81,12 +82,12 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         //Cache a reference to the player's stats
-        m_Stats = this.gameObject.GetComponent<Stats>();
+        m_Stats = GetComponent<Stats>();
         m_LookDirection = Vector3.zero;  //initially look "nowhere"
 
         //Cache references to required components / objects 
-        m_Rigidbody = this.gameObject.GetComponent<Rigidbody>();
-        m_CapsuleCollider = this.gameObject.GetComponent<CapsuleCollider>();
+        m_Rigidbody = GetComponent<Rigidbody>();
+        m_CapsuleCollider = GetComponent<CapsuleCollider>();
 
         // m_IAMovement = InputSystem.actions.FindAction("Move");
 
@@ -113,7 +114,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //m_Stats = this.GetComponent<Stats>();
         if (!CheckDeathState())
         {
             PlayerDeath();
@@ -125,9 +125,6 @@ public class PlayerController : MonoBehaviour
         {
             m_AbilityManager.Activate(0);   //Activate the skill at the given index
         }
-
-        //m_DbgAbility.Tick(Time.deltaTime); 
-
     }
 
     private void LateUpdate()
@@ -138,7 +135,6 @@ public class PlayerController : MonoBehaviour
 
     public void Tick()
     {
-        //Debug.Log("Tick!\n");
         m_Stats.Tick();
     }
 
@@ -175,7 +171,6 @@ public class PlayerController : MonoBehaviour
     private bool CheckDeathState()
     {
         //Test to see whether the player died.
-        //Debug.Log(m_Stats.m_Health);
         if (m_StateLastFrame == EPlayerState.Alive && m_Stats.m_Health <= 0)
         {
             m_StateThisFrame = EPlayerState.Dead;
