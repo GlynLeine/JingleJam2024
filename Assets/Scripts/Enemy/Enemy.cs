@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,11 +9,17 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     protected EnemyData m_enemyData;
     [SerializeField]
     protected TargetDetector m_targetDetector;
+    [SerializeField]
+    protected Ability m_abilityTemplate;
+    [SerializeField, Expandable]
+    protected Ability m_abilityInstance;
+    protected bool m_isDead = false;
     protected BehaviorGraphAgent m_graphAgent;
     protected NavMeshAgent m_navAgent;
     public NavMeshAgent NavAgent => m_navAgent;
-    protected bool m_isDead = false;
     public Transform Target => m_targetDetector.FindTarget(transform);
+    public float MoveSpeed => m_enemyData.MoveSpeed;
+    public bool IsWithinRadius => m_targetDetector.IsWithinRadius;
 
     protected abstract void Initialize();
     protected abstract void OnUpdate();
@@ -22,13 +29,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     {
         if (m_graphAgent == null)
             m_graphAgent = GetComponent<BehaviorGraphAgent>();
-        if(m_navAgent == null)
+        if (m_navAgent == null)
             m_navAgent = GetComponent<NavMeshAgent>();
     }
 
     protected void Start()
     {
         if (m_isDead) return;
+        m_abilityInstance = Instantiate(m_abilityTemplate);
         m_graphAgent.Start();
         Initialize();
     }
@@ -36,6 +44,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     protected void Update()
     {
         if (m_isDead) return;
+            m_abilityInstance?.Tick(Time.deltaTime);
         m_graphAgent.Graph.Tick();
         OnUpdate();
 

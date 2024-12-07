@@ -108,7 +108,7 @@ MonoBehaviour:
     m_playerMask:
       serializedVersion: 2
       m_Bits: 128
-  AttackAbility: {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
+  m_abilityTemplate: {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
   m_abilityInstance: {fileID: 0}
   Timer: 0
 --- !u!114 &1662852654637195432
