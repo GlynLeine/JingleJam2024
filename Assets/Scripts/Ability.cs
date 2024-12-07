@@ -1,5 +1,4 @@
 using NaughtyAttributes;
-using Unity.Hierarchy;
 using UnityEngine;
 using UnityEngine.VFX;
 

@@ -1,4 +1,3 @@
-using Unity.Hierarchy;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
