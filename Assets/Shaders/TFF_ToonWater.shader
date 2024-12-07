@@ -595,21 +595,16 @@ Shader "Toon/TFF_ToonWater"
 
 				float3 viewFragPos = TransformWorldToView(input.positionWS);
 
-				float4 reflectionColor = float4(0.0, 0.0, 0.0, 0.0);
-				reflectionColor += MarchDepth(viewFragPos, TransformWorldToViewDir(reflectionDir, true), 1.0);
-				reflectionColor += MarchDepth(viewFragPos, TransformWorldToViewDir(reflectionDir + float3(0.025, 0.0, 0.0), true), 1.0);
-				reflectionColor += MarchDepth(viewFragPos, TransformWorldToViewDir(reflectionDir + float3(0.0, 0.025, 0.0), true), 1.0);
-				reflectionColor += MarchDepth(viewFragPos, TransformWorldToViewDir(reflectionDir + float3(0.0, 0.0, 0.025), true), 1.0);
-
-				reflectionColor *= 0.25;
-
-				float4 refractionColor = MarchDepth(viewFragPos, TransformWorldToViewDir(refractionDir, true), -1.0);
+				uint3 reflectionCoords = MarchDepth(viewFragPos, TransformWorldToViewDir(reflectionDir, true), 1.0);
+				float3 reflectionColor = reflectionCoords.z == 1? LoadSceneColor(reflectionCoords.xy) : float3(0, 0, 0);
+				uint3 refractionCoords = MarchDepth(viewFragPos, TransformWorldToViewDir(refractionDir, true), -1.0);
+				float3 refractionColor = LoadSceneColor(refractionCoords.xy);
 
 				float3 BakedAlbedo = 0;
 				float3 BakedEmission = 0;
 				float3 Color = ( ( ( ( blendOpSrc300 + blendOpDest300 ) + ( _FoamColor * temp_output_156_0 ) + ( _FoamColor * temp_output_185_0 ) ) * float4( lerpResult7 , 0.0 ) ) + float4( specularLight , 0.0 ) ).rgb;
 
-				Color = lerp(refractionColor.rgb, Color + reflectionColor.rgb * reflectionColor.a * refractionIntensity, max(clampResult299, 1.0 - refractionIntensity));
+				Color = lerp(refractionColor.rgb, Color + reflectionColor.rgb * refractionIntensity, max(clampResult299, 1.0 - refractionIntensity));
 
 				float Alpha = 1.0;
 				float AlphaClipThreshold = 0.5;

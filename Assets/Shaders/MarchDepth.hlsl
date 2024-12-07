@@ -22,27 +22,31 @@ uint2 ToScreenSpacePos(float3 viewSpace)
     return (uint2) round(result.xy * screenScale + screenScale);
 }
 
+float2 ToSceneColorUV(uint2 sceneColorTexel)
+{
+    return sceneColorTexel * _CameraOpaqueTexture_TexelSize.xy;
+}
+
 uint2 RoundParam(float2 val)
 {
     float2 dirSign = sign(val);
-    return (uint2)(dirSign * floor(dirSign * val) + dirSign);
+    return (uint2) (dirSign * floor(dirSign * val) + dirSign);
 }
 
-float4 MarchDepth(float3 rayOrigin, float3 rayDir, float comparisonSign)
+uint3 MarchDepth(float3 rayOrigin, float3 rayDir, float comparisonSign)
 {
     const float distanceBias = 0.05;
-    const float marchDist = 20.0;
-    const float stepSize = 0.2;
+    const float marchDist = 10.0;
+    const float stepSize = 0.1;
     const float backtrackDist = stepSize;
     const float backtrackStepSize = backtrackDist * 0.1;
-    const int iterationCount = (int)round(marchDist / stepSize);
+    const int iterationCount = (int) round(marchDist / stepSize);
     
     uint2 currentTexel;
     float3 rayStep = rayDir * stepSize;
     float3 rayPos = rayOrigin;
     float depthDist;
     
-    float validResult = 0.0;
     int i = 0;
     for (; i < iterationCount; i++)
     {
@@ -52,12 +56,11 @@ float4 MarchDepth(float3 rayOrigin, float3 rayDir, float comparisonSign)
         depthDist = (rayPos.z - sampleDepth) * comparisonSign;
         if (abs(depthDist) < distanceBias)
         {
-            return float4(LoadSceneColor(currentTexel), 1.0);
+            return uint3(currentTexel, 1);
         }
         
         if (depthDist < 0.0)
         {
-            validResult = 1.0;
             break;
         }
         
@@ -75,9 +78,9 @@ float4 MarchDepth(float3 rayOrigin, float3 rayDir, float comparisonSign)
 			
         if (abs(depthDist) < distanceBias)
         {
-            return float4(LoadSceneColor(currentTexel), 1.0);
+            return uint3(currentTexel, 1);
         }
     }
     
-    return float4(LoadSceneColor(currentTexel), validResult);
+    return uint3(currentTexel, 0);
 }

@@ -1,5 +1,4 @@
 using Unity.Hierarchy;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
