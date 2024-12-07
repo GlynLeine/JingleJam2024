@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class SnapObjects : MonoBehaviour
@@ -9,7 +10,8 @@ public class SnapObjects : MonoBehaviour
         foreach (Transform child in transform)
         {
             RaycastHit hit = new RaycastHit();
-            if (Physics.Raycast(child.transform.position, -transform.up, out hit, Mathf.Infinity))
+            child.transform.position = new Vector3(child.transform.position.x, 70f, child.transform.position.z);
+            if (Physics.Raycast(child.transform.position, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
             {
                 child.transform.position = hit.point;
             }
