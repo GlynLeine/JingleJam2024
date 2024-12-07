@@ -34,9 +34,14 @@ public class GameController : MonoBehaviour
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
         m_PlayerController = m_PlayerRef.GetComponent<PlayerController>();
 
-        splineContainer = spline.GetComponent<SplineContainer>();
-        nearestPoints = new System.Collections.Generic.List<Vector3>(splineContainer.Splines.Count);
-        tangents = new System.Collections.Generic.List<Vector3>(splineContainer.Splines.Count);
+        if (spline != null)
+            splineContainer = spline.GetComponent<SplineContainer>();
+
+        if (splineContainer != null)
+        {
+            nearestPoints = new System.Collections.Generic.List<Vector3>(splineContainer.Splines.Count);
+            tangents = new System.Collections.Generic.List<Vector3>(splineContainer.Splines.Count);
+        }
         lookAction = InputSystem.actions.FindAction("Look");
     }
 
@@ -113,7 +118,7 @@ public class GameController : MonoBehaviour
         Gizmos.DrawRay(nearestSplinePoint + new Vector3(0.0f, 3.0f, 0.0f), splineTangent);
         if (m_PlayerRef != null)
         {
-            Gizmos.DrawRay(m_PlayerRef.transform.position + new Vector3(0.0f, 3.0f, 0.0f), new Vector3( lookAction.ReadValue<Vector2>().x, 0.0f, lookAction.ReadValue<Vector2>().y).normalized);
+            Gizmos.DrawRay(m_PlayerRef.transform.position + new Vector3(0.0f, 3.0f, 0.0f), new Vector3(lookAction.ReadValue<Vector2>().x, 0.0f, lookAction.ReadValue<Vector2>().y).normalized);
         }
     }
 }

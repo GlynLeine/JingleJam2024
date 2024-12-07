@@ -32,8 +32,7 @@ public class Arc : MonoBehaviour
     public void Tick()
     {
         Origin = Vector3.zero;
-        TargetPosition = Target.position;
-        TargetPosition -= transform.position;
+        TargetPosition = Target.position- transform.position;
         var dir = TargetPosition - Origin;
         Position1 = Vector3.Lerp(Origin, Origin + dir, .33f);
         Position2 = Vector3.Lerp(Origin, Origin + dir, .66f);

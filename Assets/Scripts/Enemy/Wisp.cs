@@ -6,8 +6,6 @@ public class Wisp : Enemy
 {
     public float Timer = 0;
     public Vector3 PositionOnEnter => m_targetDetector.PositionOnEnter;
-    public float OrbitRadius => m_targetDetector.OrbitRadius;
-    public bool IsWithinOrbitRadius => m_targetDetector.IsWithinOrbitRadius;
     protected override void Initialize() { }
     protected override void OnUpdate() { }
     protected override void OnDeath() { }

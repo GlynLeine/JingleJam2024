@@ -28,8 +28,8 @@ public partial class OrbitAction : Action
     {
         Wisp.Value.NavAgent.enabled = false;
         Wisp.Value.Timer += Time.deltaTime * m_direction * Wisp.Value.MoveSpeed;
-        float x = Mathf.Cos(Wisp.Value.Timer) * (Wisp.Value.OrbitRadius - 1f);
-        float z = Mathf.Sin(Wisp.Value.Timer) * (Wisp.Value.OrbitRadius - 1f);
+        float x = Mathf.Cos(Wisp.Value.Timer) * (Wisp.Value.AttackRadius - 1f);
+        float z = Mathf.Sin(Wisp.Value.Timer) * (Wisp.Value.AttackRadius - 1f);
         Vector3 pos = Target.Value.position + new Vector3(x, 0, z);
         Wisp.Value.transform.position = Vector3.Lerp(Wisp.Value.transform.position, pos, Time.deltaTime *5.0f /*Wisp.Value.MoveSpeed*/);
         return Status.Success;
