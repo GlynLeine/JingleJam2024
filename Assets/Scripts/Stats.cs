@@ -4,29 +4,51 @@ public class Stats : MonoBehaviour
 {
     #region Health
     [Header("Health Statistics")]
-    [SerializeField] public float m_Health;
-    public float m_MaxHealth;
-    public float m_HealthRegenPerTick;
+    [SerializeField]
+    private float m_Health;
+    public float Health => m_Health;
+    [SerializeField]
+    private float m_MaxHealth;
+    public float MaxHealth => m_MaxHealth;
+    [SerializeField]
+    private float m_HealthRegenPerTick;
+    public float HealthRegenPerTick=>m_HealthRegenPerTick;
     #endregion
 
     #region Mana
     [Header("Mana Statistics")]
-    public float m_Mana;
-    public float m_MaxMana;
-    public float m_ManaRegenPerTick;
+    [SerializeField]
+    private float m_Mana;
+    public float Mana => m_Mana;
+    [SerializeField]
+    private float m_MaxMana;
+    public float MaxMana => m_MaxMana;
+    [SerializeField]
+    private float m_ManaRegenPerTick;
+    public float ManaRegenPerTick => m_ManaRegenPerTick;
     #endregion
 
     #region Movement
     [Header("Movement Statistics")]
-    public float m_MovementSpeed;
-    public float m_MaxMovementSpeed;
+    [SerializeField]
+    private float m_MovementSpeed;
+    public float MovementSpeed => m_MovementSpeed;
+    [SerializeField]
+    private float m_MaxMovementSpeed;
+    public float MaxMovementSpeed => m_MaxMovementSpeed;
     #endregion
 
     #region Combat
     [Header("Combat Statistics")]
-    public int m_StrengthBonus;    //Add to each attack's base strength
-    public float m_AttackSpeedScale;  //1.0 for normal! 
-    public int m_DefenceBonus;   //Subtract from incoming damage
+    [SerializeField]
+    private int m_StrengthBonus;    //Add to each attack's base strength
+    public int StrengthBonus => m_StrengthBonus;
+    [SerializeField]
+    private float m_AttackSpeedScale;  //1.0 for normal! 
+    public float AttackSpeecScale => m_AttackSpeedScale;
+    [SerializeField]
+    private int m_DefenceBonus;   //Subtract from incoming damage
+    public int DefenceBonus => m_DefenceBonus;
     #endregion
 
 

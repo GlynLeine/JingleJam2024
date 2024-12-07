@@ -4,7 +4,6 @@ using UnityEngine.VFX;
 
 public class Arc : MonoBehaviour
 {
-
     public Transform Target;
     public int Damage;
     public float Range;

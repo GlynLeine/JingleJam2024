@@ -171,12 +171,12 @@ public class PlayerController : MonoBehaviour
     private bool CheckDeathState()
     {
         //Test to see whether the player died.
-        if (m_StateLastFrame == EPlayerState.Alive && m_Stats.m_Health <= 0)
+        if (m_StateLastFrame == EPlayerState.Alive && m_Stats.Health <= 0)
         {
             m_StateThisFrame = EPlayerState.Dead;
             return false;
         }
-        if (m_Stats.m_Health > 0)
+        if (m_Stats.Health > 0)
         {
             m_StateThisFrame = EPlayerState.Alive;
         }
@@ -264,7 +264,7 @@ public class PlayerController : MonoBehaviour
              * */
             if (m_bCanMove)
             {
-                m_Rigidbody.MovePosition(m_Rigidbody.position + (velocity * m_Stats.m_MovementSpeed * Time.deltaTime));     //Move the player's rigidbody
+                m_Rigidbody.MovePosition(m_Rigidbody.position + (velocity * m_Stats.MovementSpeed * Time.deltaTime));     //Move the player's rigidbody
             }
             if (m_bCanRotate)
             {
