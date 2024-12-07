@@ -542,7 +542,7 @@ Shader "Toon/TFF_CustomGrass"
 				float ase_lightIntensity = max( max( _MainLightColor.r, _MainLightColor.g ), _MainLightColor.b );
 				float4 ase_lightColor = float4( _MainLightColor.rgb / ase_lightIntensity, ase_lightIntensity );
 				float ase_lightAtten = 0;
-				Light ase_mainLight = GetMainLight( ShadowCoords );
+				Light ase_mainLight = GetMainLight( ShadowCoords, WorldPosition, half4(1, 1, 1, 1) );
 				ase_lightAtten = ase_mainLight.distanceAttenuation * ase_mainLight.shadowAttenuation;
 				float3 temp_output_192_0 = ( ase_lightColor.rgb * ase_lightColor.a * ase_lightAtten );
 				float2 uv_TextureSample1 = input.ase_texcoord4.xy * _TextureSample1_ST.xy + _TextureSample1_ST.zw;

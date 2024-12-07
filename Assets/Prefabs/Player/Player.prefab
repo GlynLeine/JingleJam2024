@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4011415669455607454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6053658949668486620}
+  - component: {fileID: 6545774603423128624}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6053658949668486620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011415669455607454}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7451827041828861665}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6545774603423128624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011415669455607454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ecc617472efefc459c1e65f2ac690c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  m_CameraOffset: {x: 0, y: 8, z: 0}
+  m_CameraSplineDist: 50
+  m_CameraSpeed: 4
+  spline: {fileID: 0}
 --- !u!1 &6671196754011781540
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 6671196754011781540}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,7 +148,7 @@ GameObject:
   - component: {fileID: 260665438577791929}
   - component: {fileID: 526993210524478768}
   - component: {fileID: 1961609386138888914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -120,6 +169,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1375536384945859655}
+  - {fileID: 6053658949668486620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7896980768321917403
@@ -134,17 +184,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365c2b6d136de6e4da2f4744cdc0a44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Health: 5067
-  m_MaxHealth: 96
+  m_Health: 100
+  m_MaxHealth: 100
   m_HealthRegenPerTick: 0
-  m_Stamina: 0
-  m_MaxStamina: 0
+  m_Stamina: 100
+  m_MaxStamina: 100
   m_StaminaRegenPerTick: 0
   m_MovementSpeed: 10
   m_MaxMovementSpeed: 10
-  m_AttackStrength: 0
+  m_StrengthBonus: 0
   m_AttackSpeedScale: 1
-  m_Defence: 0
+  m_DefenceBonus: 0
 --- !u!114 &260665438577791929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +222,7 @@ MonoBehaviour:
   m_MovementDeadzone: 0.2
   m_bCanRotate: 1
   m_RotationSpeed: 560
+  m_DbgAbility: {fileID: 11400000, guid: e1658da72f5c4c441a67c3752c767a5e, type: 2}
 --- !u!54 &526993210524478768
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -221,7 +272,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &9023006142077745661
 GameObject:
   m_ObjectHideFlags: 0
