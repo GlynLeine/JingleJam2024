@@ -378,6 +378,22 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[5]'
       value: 
       objectReference: {fileID: 2100000, guid: 98611885a541e8a4c97611ab03de9cdf, type: 2}
+    - target: {fileID: -977256918290444930, guid: e677f376ab1c58149a19260b09e74aab, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b0a0d79cbb490f34892ed0c4d8c2b61f, type: 2}
+    - target: {fileID: -977256918290444930, guid: e677f376ab1c58149a19260b09e74aab, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2498fc31c17ff6f499c759eddc5c02d1, type: 2}
+    - target: {fileID: -977256918290444930, guid: e677f376ab1c58149a19260b09e74aab, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c6df3e4658546c04081f3161cfaaa92d, type: 2}
+    - target: {fileID: -977256918290444930, guid: e677f376ab1c58149a19260b09e74aab, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 98611885a541e8a4c97611ab03de9cdf, type: 2}
     - target: {fileID: 919132149155446097, guid: e677f376ab1c58149a19260b09e74aab, type: 3}
       propertyPath: m_Name
       value: WildToWired_Fox
