@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca49a13ef3662c744b04febb0687ab5c, type: 3}
   m_Name: VolumetricFogVolumeComponent
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   stepCount:
     m_OverrideState: 1
     m_Value: 50

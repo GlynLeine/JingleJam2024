@@ -10,6 +10,10 @@ public partial class ShouldFleeCondition : Condition
 
     public override bool IsTrue()
     {
+        if (Enemy.Value.IsWithinFleeRadius)
+        {
+            Enemy.Value.NavAgent.SetDestination(Enemy.Value.transform.position);
+        }
         return Enemy.Value.IsWithinFleeRadius;
     }
 
