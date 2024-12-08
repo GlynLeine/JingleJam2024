@@ -51,7 +51,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Cone_Radius: 360
-    - _Fill: 1
+    - _Fill: 0
     - _Is_Circle: 1
     - _QueueControl: 1
     - _QueueOffset: 0

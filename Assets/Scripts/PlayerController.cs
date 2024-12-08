@@ -171,12 +171,12 @@ public class PlayerController : MonoBehaviour
     private bool CheckDeathState()
     {
         //Test to see whether the player died.
-        if (m_StateLastFrame == EPlayerState.Alive && m_Stats.m_Health <= 0)
+        if (m_StateLastFrame == EPlayerState.Alive && m_Stats.Health <= 0)
         {
             m_StateThisFrame = EPlayerState.Dead;
             return false;
         }
-        if (m_Stats.m_Health > 0)
+        if (m_Stats.Health > 0)
         {
             m_StateThisFrame = EPlayerState.Alive;
         }
@@ -192,9 +192,9 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player Death!\n");
         m_bCanMove = false;
-        m_bCanRotate = false; 
+        m_bCanRotate = false;
         //Todo: Trigger a Death animation etc...
-        m_StateThisFrame = EPlayerState.Dead; 
+        m_StateThisFrame = EPlayerState.Dead;
     }
 
     private void ProcessMovement()
@@ -225,16 +225,20 @@ public class PlayerController : MonoBehaviour
             //Cache the player's look-at direction
 
             {
-                RaycastHit hit;
-                if (!Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Infinity))
+                Vector3 n = Vector3.up;
                 {
-                    return;
+
+                    RaycastHit hit;
+                    if (Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Infinity))
+                    {
+                        n = hit.normal;
+                    }
                 }
 
                 //Snap the player to the ground!
                 // transform.position.Set(transform.position.x, hit.point.y, transform.position.z);
-                float n_dot_v = Vector3.Dot(velocity, hit.normal);
-                velocity = (velocity - hit.normal * n_dot_v);
+                float n_dot_v = Vector3.Dot(velocity, n);
+                velocity = (velocity - n * n_dot_v);
 
                 if (velocity.magnitude > 1.0f)
                 {
@@ -260,7 +264,7 @@ public class PlayerController : MonoBehaviour
              * */
             if (m_bCanMove)
             {
-                m_Rigidbody.MovePosition(m_Rigidbody.position + (velocity * m_Stats.m_MovementSpeed * Time.deltaTime));     //Move the player's rigidbody
+                m_Rigidbody.MovePosition(m_Rigidbody.position + (velocity * m_Stats.MovementSpeed * Time.deltaTime));     //Move the player's rigidbody
             }
             if (m_bCanRotate)
             {

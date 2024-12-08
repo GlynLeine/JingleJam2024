@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Stats))]
 public class AbilityManager : MonoBehaviour
 {
-    [SerializeField] private Ability[] m_Abilities;
+    [SerializeField]
+    private Ability[] m_Abilities;
 
     public void Start()
     {
@@ -12,7 +13,7 @@ public class AbilityManager : MonoBehaviour
             m_Abilities[i] = (Ability)ScriptableObject.Instantiate(m_Abilities[i]);     //Create instances of the referenced abilities. 
         }
     }
-    public void Activate(int index)
+    public void Activate(int index, Transform target = null)
     {
         if (index > m_Abilities.Length)
         {
@@ -20,7 +21,7 @@ public class AbilityManager : MonoBehaviour
             return;
         }
         //Trigger the requested ability
-        m_Abilities[index]?.Activate(gameObject);
+        m_Abilities[index]?.Activate(gameObject, target);
     }
 
     // Update is called once per frame
