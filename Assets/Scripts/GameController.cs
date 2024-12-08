@@ -111,7 +111,7 @@ public class GameController : MonoBehaviour
             m_PlayerController.Tick();
         }
 
-        if (m_DeathScreen)
+        if (m_DeathScreen != null)
         {
             if (m_PlayerController.Stats.Health <= 0.0f)
             {

@@ -12,14 +12,19 @@ public class TargetDetector
     private float m_attackRadius = 7.0f;
     public float AttackRadius => m_attackRadius;
     [SerializeField]
+    private float m_fleeRadius = 0.0f;
+    public float FleeRadius => m_fleeRadius;
+    [SerializeField]
     private LayerMask m_playerMask;
 
     private Vector3 m_positionOnEnter;
     public Vector3 PositionOnEnter => m_positionOnEnter;
     private bool m_isWithinRadius = false;
-    public bool IsWithinRadius => m_isWithinRadius; 
+    public bool IsWithinRadius => m_isWithinRadius;
     private bool m_isWithinAttackRadius = false;
     public bool IsWithinAttackRadius => m_isWithinAttackRadius;
+    private bool m_isWithinFleeRadius = false;
+    public bool IsWithinFleeRadius => m_isWithinFleeRadius;
 
     public Transform FindTarget(Transform transform)
     {
@@ -47,6 +52,15 @@ public class TargetDetector
         else
             m_isWithinAttackRadius = false;
 
+        if (m_isWithinRadius)
+        {
+            cols = new Collider[1];
+            numCols = Physics.OverlapSphereNonAlloc(transform.position, m_fleeRadius, cols, m_playerMask);
+            m_isWithinFleeRadius = numCols > 0;
+        }
+        else
+            m_isWithinFleeRadius = false;
+
         return target;
     }
 
@@ -65,6 +79,9 @@ public class TargetDetector
 
         Gizmos.color = IsWithinAttackRadius ? Color.green : Color.magenta;
         Gizmos.DrawWireSphere(transform.position, m_attackRadius);
+
+        Gizmos.color = IsWithinFleeRadius ? Color.green : Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, m_fleeRadius);
     }
 #endif
 }
