@@ -67,7 +67,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private PlayerInputAction[] m_ActionMappings;
 
     [SerializeField] private bool m_bCanMove;   //Is the player allowed to move?
-    [SerializeField] private bool m_bIsBlocking;
+    //[SerializeField] private bool m_bIsBlocking;
+    [SerializeField] public bool m_bCanInteract;
     [SerializeField] private EPlayerState m_StateThisFrame;
     [SerializeField] private EPlayerState m_StateLastFrame;
     [SerializeField] private uint m_AttackIndex;    //Which normal attack are we on?
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private bool m_bCanRotate;
     [SerializeField] private float m_RotationSpeed;
 
+    public GameObject m_Interactable;   //This is public! Yes, it's bad code! no, I don't care!
     private AbilityManager m_AbilityManager;
     private Animator m_Animator;
 
@@ -137,6 +139,12 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             Debug.Log("Attack!");
         }
+        else if (InputSystem.actions.FindAction("Interact").ReadValue<float>() > 0.0f)
+        {
+            Debug.Log("Interacting with " + m_Interactable.name);
+            m_Interactable.GetComponent<IInteractable>().OnInteract(); 
+        }
+
         else if (InputSystem.actions.FindAction("Skill_1").ReadValue<float>() > 0.0f)
         {
             m_AbilityManager.Activate(0);   //Activate the skill at the given index

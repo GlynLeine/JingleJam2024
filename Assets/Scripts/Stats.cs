@@ -14,7 +14,11 @@ public class Stats : MonoBehaviour
         
     [SerializeField]
     private float m_MaxHealth;
-    public float MaxHealth => m_MaxHealth;
+    public float MaxHealth
+    {
+        get => m_MaxHealth; 
+        set => m_MaxHealth = value;
+    }
     [SerializeField]
     private float m_HealthRegenPerTick;
     public float HealthRegenPerTick=>m_HealthRegenPerTick;
@@ -72,8 +76,8 @@ public class Stats : MonoBehaviour
 
     public void Tick()
     {
-        m_Health += m_HealthRegenPerTick;
-        m_Mana += m_ManaRegenPerTick; 
+        m_Health += m_HealthRegenPerTick * Time.deltaTime;
+        m_Mana += m_ManaRegenPerTick * Time.deltaTime; 
     }
 
     public void Reset()

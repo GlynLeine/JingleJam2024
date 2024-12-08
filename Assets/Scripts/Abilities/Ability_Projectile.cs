@@ -40,7 +40,7 @@ public class Ability_Projectile : Ability
                 p = projectile.AddComponent<Projectile>();
             p.m_Origin = owner.transform.position;
             p.m_Direction = owner.gameObject.CompareTag("Player") ? owner.GetComponent<PlayerController>().GetLookAtDirection() : owner.transform.forward;//
-            p.m_Damage = damage;
+            p.m_Damage = damage + owner.gameObject.GetComponent<Stats>().StrengthBonus;
             p.m_Speed = speed;
             p.m_Size = size;
             p.m_Range = range;

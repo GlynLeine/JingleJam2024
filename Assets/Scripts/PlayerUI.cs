@@ -14,12 +14,10 @@ public class PlayerUI : MonoBehaviour
     private AbilityManager m_AbilityManagerRef;
 
     private Slider m_HPSlider;
-    private TextMeshProUGUI m_CurrentHPLabel;
-    private TextMeshProUGUI m_MaxHPLabel;
+    [SerializeField] private TextMeshProUGUI m_HPLabel;
 
     private Slider m_MPSlider;
-    private TextMeshProUGUI m_CurrentMPLabel;
-    private TextMeshProUGUI m_MaxMPLabel;
+    [SerializeField] private TextMeshProUGUI m_MPLabel; 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,12 +27,10 @@ public class PlayerUI : MonoBehaviour
 
         //Grab UI handles we care about
         m_HPSlider = m_HPBar.GetComponent<Slider>();
-        m_CurrentHPLabel = m_HPBar.GetComponentsInChildren<TextMeshProUGUI>()[0];   //Indexing into this is a little evil, but we know where everything SHOULD be...
-        m_MaxHPLabel = m_HPBar.GetComponentsInChildren<TextMeshProUGUI>()[1];
+        //m_HPLabel = m_HPBar.GetComponentsInChildren<TextMeshProUGUI>()[0];   //Indexing into this is a little evil, but we know where everything SHOULD be...
 
         m_MPSlider = m_MPBar.GetComponent<Slider>();
-        m_CurrentMPLabel = m_MPBar.GetComponentsInChildren<TextMeshProUGUI>()[0];   //Indexing into this is a little evil, but we know where everything SHOULD be...
-        m_MaxMPLabel = m_MPBar.GetComponentsInChildren<TextMeshProUGUI>()[1];
+        //m_MPLabel = m_MPBar.GetComponentsInChildren<TextMeshProUGUI>()[0];   //Indexing into this is a little evil, but we know where everything SHOULD be...
         m_AbilityManagerRef = m_PlayerRef.gameObject.GetComponent<AbilityManager>();
     }
 
@@ -47,16 +43,14 @@ public class PlayerUI : MonoBehaviour
             int health = (int)m_PlayerRef.Stats.Health;
             int maxHealth = (int)m_PlayerRef.Stats.MaxHealth;
             m_HPSlider.value = (float)health / (float)maxHealth;
-            m_CurrentHPLabel.text = health.ToString();
-            m_MaxHPLabel.text = maxHealth.ToString();
+            m_HPLabel.text = health.ToString() + " / " + maxHealth.ToString();
         }
         //Mana
         {
             int mana = (int)m_PlayerRef.Stats.Mana;
             int maxMana = (int)m_PlayerRef.Stats.MaxMana;
             m_MPSlider.value = (float)mana / (float)maxMana;
-            m_CurrentMPLabel.text = mana.ToString();
-            m_MaxMPLabel.text = maxMana.ToString();
+            m_MPLabel.text = mana.ToString() + " / " + maxMana.ToString();
         }
 
         //Abilities

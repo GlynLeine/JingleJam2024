@@ -49,6 +49,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
         if (m_isDead) return;
         //m_abilityInstance?.Tick(Time.deltaTime);
         m_graphAgent.Graph.Tick();
+        m_stats.Tick(); 
         OnUpdate();
 
         //Check Stats

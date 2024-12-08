@@ -11,6 +11,7 @@ public class AbilityManager : MonoBehaviour
         for (int i = 0; i < m_Abilities.Length; i++)
         {
             m_Abilities[i] = (Ability)ScriptableObject.Instantiate(m_Abilities[i]);     //Create instances of the referenced abilities. 
+            m_Abilities[i].status = EAbilityStatus.Ready; 
         }
     }
     public void Activate(int index, Transform target = null)
@@ -46,5 +47,9 @@ public class AbilityManager : MonoBehaviour
     public Ability[] GetAbilities()
     {
         return m_Abilities;
+    }
+    public void SetAbility(int idx, Ability ability)
+    {
+        m_Abilities[idx] = ability;  
     }
 }

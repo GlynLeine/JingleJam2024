@@ -32,7 +32,7 @@ public class Ability_Arc : Ability
 
             arc = arcGO.AddComponent<Arc>();
             arc.Target = target;
-            arc.Damage = Damage;
+            arc.Damage = Damage + owner.gameObject.GetComponent<Stats>().StrengthBonus;
             arc.Range = Range;
             arc.Initialize(this);
 
