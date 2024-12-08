@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using System.Linq;
 using NUnit.Framework;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.Rendering;
 using Unity.VisualScripting;
 using UnityEditor.SearchService;
 
@@ -29,11 +30,12 @@ public class GameController : MonoBehaviour
     private Vector3 nearestSplinePointCandidate;
     private Vector3 splineTangentCandidate;
     private Vector3 m_CamTgtPos;
+    private Vector3 m_playerForward;
     private SplineContainer splineContainer;
     private InputAction lookAction;
     private float nearestDist = Mathf.Infinity;
-    int nearestSearchIteration = 0;
-    const int nearestSearchFrameSpread = 30;
+    int startIteration = 0;
+    const float nearestSearchFrameSpread = 0.25f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,18 +56,9 @@ public class GameController : MonoBehaviour
 
         if (splineContainer != null)
         {
-            int iterations = splineContainer.Splines.Count / nearestSearchFrameSpread;
-            int startIteration = iterations * nearestSearchIteration;
+            int frameCount = Mathf.CeilToInt(nearestSearchFrameSpread / Time.deltaTime);
+            int iterations = Mathf.RoundToInt((float)splineContainer.Splines.Count / frameCount);
             int endIteration = Mathf.Min(startIteration + iterations, splineContainer.Splines.Count);
-
-            nearestSearchIteration = (nearestSearchIteration + 1) % nearestSearchFrameSpread;
-
-            if (startIteration == 0)
-            {
-                nearestDist = Mathf.Infinity;
-                splineTangent = splineTangentCandidate;
-                nearestSplinePoint = nearestSplinePointCandidate;
-            }
 
             //Find the nearest
             for (int i = startIteration; i < endIteration; i++)
@@ -77,8 +70,9 @@ public class GameController : MonoBehaviour
                 SplineUtility.GetNearestPoint<Spline>(s, playerPos, out nearest, out t);
                 Vector3 splinePoint = (Vector3)nearest;
                 Vector3 tangent = SplineUtility.EvaluateTangent<Spline>(s, t);
+                tangent = new Vector3(tangent.x, 0f, tangent.z).normalized;
 
-                float dist = Vector3.SqrMagnitude(playerPos - splinePoint);
+                float dist = Vector3.Distance(playerPos, splinePoint) - Vector3.Dot(m_playerForward, tangent);
                 if (dist < nearestDist)
                 {
                     nearestDist = dist;
@@ -86,24 +80,31 @@ public class GameController : MonoBehaviour
                     nearestSplinePointCandidate = splinePoint;
                 }
             }
+
+            startIteration = endIteration;
+
+            if (endIteration == splineContainer.Splines.Count)
+            {
+                startIteration = 0;
+            }
+
+            if (startIteration == 0)
+            {
+                nearestDist = Mathf.Infinity;
+                splineTangent = splineTangentCandidate;
+                nearestSplinePoint = nearestSplinePointCandidate;
+                m_playerForward = (m_playerForward + m_PlayerController.forward) * 0.5f;
+            }
         }
 
-        float distToNearestSplinePoint = Vector3.Distance(playerPos, nearestSplinePoint);
-        if (distToNearestSplinePoint < m_CameraSplineDist)
+        float distToNearestSplinePoint = Vector3.SqrMagnitude(playerPos - nearestSplinePoint);
+        if (distToNearestSplinePoint < (m_CameraSplineDist * m_CameraSplineDist))
         {
+            float splineDistRatio = (Mathf.Sqrt(distToNearestSplinePoint) / m_CameraSplineDist) * Time.deltaTime;
             m_CamTgtPos = nearestSplinePoint + m_CameraOffset;
-            m_Camera.transform.position = Vector3.Lerp(playerPos + m_CameraOffset, m_CamTgtPos, distToNearestSplinePoint / m_CameraSplineDist * Time.deltaTime);
-            Vector3 tangent = splineTangent.normalized;
-            m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.gameObject.transform.rotation, Quaternion.FromToRotation(Vector3.forward, new Vector3(tangent.x, 0.0f, tangent.z)), distToNearestSplinePoint / m_CameraSplineDist * m_CameraAutoRotationSpeed * Time.deltaTime);
+            m_Camera.transform.position = Vector3.Lerp(playerPos + m_CameraOffset, m_CamTgtPos, splineDistRatio);
+            m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.gameObject.transform.rotation, Quaternion.FromToRotation(Vector3.forward, splineTangent), splineDistRatio * m_CameraAutoRotationSpeed);
         }
-        /*
-        else
-        {
-            m_Camera.transform.position = new Vector3(m_CameraOffset.x + playerPos.x, m_CameraOffset.y + playerPos.y, m_CameraOffset.z + playerPos.z);
-            float cur = m_Camera.transform.eulerAngles.y;
-            m_Camera.transform.rotation = Quaternion.Euler(0.0f, cur + lookAction.ReadValue<Vector2>().x * m_CameraLookSpeed * Time.deltaTime, 0.0f);
-        }
-        */
     }
 
     void Update()
@@ -139,6 +140,8 @@ public class GameController : MonoBehaviour
         if (m_PlayerRef != null)
         {
             Gizmos.DrawRay(m_PlayerRef.transform.position + new Vector3(0.0f, 3.0f, 0.0f), new Vector3(lookAction.ReadValue<Vector2>().x, 0.0f, lookAction.ReadValue<Vector2>().y).normalized);
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(m_PlayerRef.transform.position + new Vector3(0.0f, 2.5f, 0.0f), m_playerForward);
         }
     }
 

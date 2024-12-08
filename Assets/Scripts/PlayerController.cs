@@ -82,6 +82,11 @@ public class PlayerController : MonoBehaviour
     private AbilityManager m_AbilityManager;
     private Animator m_Animator;
 
+    public Vector3 forward
+    {
+        get => m_LookDirection;
+    }
+
     private void Start()
     {
         //Cache a reference to the player's stats
