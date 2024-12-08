@@ -36,7 +36,7 @@ public class Ability : ScriptableObject
     public float castTime = 0.0f;
     public float recastTimer = 0.0f;
     public float recastTime = 0.0f;
-    private float executionTimer = 0.0f;
+    protected float executionTimer = 0.0f;
 
     public virtual void Tick(float dt)
     {

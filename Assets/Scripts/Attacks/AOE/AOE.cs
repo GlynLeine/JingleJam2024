@@ -10,8 +10,8 @@ public class AOE : MonoBehaviour
 
     public void Initialize(Ability_AOE ability)
     {
-        //Vfx = GetComponent<VisualEffect>();
-
+        Vfx.enabled = true;
+        Vfx.Play();
         Transform Target = transform;
         var enemy = Target.GetComponent<IDamageable>();
         if (enemy != null)
@@ -19,7 +19,7 @@ public class AOE : MonoBehaviour
             enemy.TakeDamage();
         }
 
-        Destroy(GetComponent<AttackIndicator>());
+        GetComponent<MeshRenderer>().enabled = false;
         StartCoroutine(WaitThenDestroy(1f));
     }
 
