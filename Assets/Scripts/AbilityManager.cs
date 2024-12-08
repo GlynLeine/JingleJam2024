@@ -21,7 +21,7 @@ public class AbilityManager : MonoBehaviour
             return;
         }
         //Trigger the requested ability
-        m_Abilities[index]?.Activate(gameObject);
+        m_Abilities[index]?.Activate(gameObject, target);
 
         if(m_Animator != null){
             m_Animator.Play(m_Abilities[index]?.animationName); 

@@ -16,7 +16,7 @@ public class AOE : MonoBehaviour
         var enemy = Target.GetComponent<IDamageable>();
         if (enemy != null)
         {
-            enemy.TakeDamage();
+            enemy.TakeDamage(ability.Damage);
         }
 
         GetComponent<MeshRenderer>().enabled = false;

@@ -17,14 +17,14 @@ public class Arc : MonoBehaviour
     public void Initialize(Ability_Arc ability)
     {
         Vfx = GetComponent<VisualEffect>();
-        Tick();
 
         var enemy = Target.GetComponent<IDamageable>();
         if (enemy != null)
         {
-            enemy.TakeDamage();
+            enemy.TakeDamage(ability.Damage);
         }
 
+        Tick();
         StartCoroutine(WaitThenDestroy(ability.castTime));
     }
 

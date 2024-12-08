@@ -17,9 +17,9 @@ TagManager:
   - 
   - 
   - levelGeometry
-  - 
+  - Player_Attack
+  - Enemy_Attack
   - Volumetric Fog
-  - 
   - 
   - 
   - 

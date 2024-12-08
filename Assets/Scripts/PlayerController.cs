@@ -54,7 +54,7 @@ public struct PlayerInputAction
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(AbilityManager))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     private Stats m_Stats;
     public Stats Stats => m_Stats;
@@ -326,5 +326,10 @@ public class PlayerController : MonoBehaviour
     public Vector3 GetLookAtDirection()
     {
         return m_LookDirection;
+    }
+
+    void IDamageable.TakeDamage(float damage)
+    {
+        m_Stats.Health -= damage;
     }
 }

@@ -1,13 +1,7 @@
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 using UnityEngine.Splines;
-using System.Collections.Generic;
-using UnityEngine.VFX;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
@@ -15,6 +9,7 @@ public class Player : MonoBehaviour
     GameObject owner;
     Rigidbody rb;
     GameObject camera;
+    Stats m_Stats; 
 
     [SerializeField] private GameObject spline;
 
@@ -56,6 +51,7 @@ public class Player : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
         skillAction = InputSystem.actions.FindAction("Skill");
+        m_Stats = GetComponent<Stats>();
 
         m_bWasDeadLastFrame = true;
         m_bIsDeadThisFrame = false;
@@ -247,6 +243,8 @@ public class Player : MonoBehaviour
         Gizmos.DrawSphere(nearest, 3.0f);
         */
     }
+
+
 
     /*
 public void DebugAnimCallback()

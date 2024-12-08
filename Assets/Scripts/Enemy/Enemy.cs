@@ -51,16 +51,26 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
         m_graphAgent.Graph.Tick();
         OnUpdate();
 
+        //Check Stats
+        if(m_stats.Health <= 0)
+        {
+            m_isDead = true; 
+        }
+
         if (m_isDead)
         {
             m_graphAgent.End();
             OnDeath();
+
+            //NOTE: Do we want to destroy the gameobject on death, and handle spawning via a spawner? 
+            //I'll just destroy them for now. 
+            GameObject.Destroy(this.gameObject);
         }
     }
 
     public abstract void Attack();
 
-    public abstract void TakeDamage();
+    public abstract void TakeDamage(float damage);
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
