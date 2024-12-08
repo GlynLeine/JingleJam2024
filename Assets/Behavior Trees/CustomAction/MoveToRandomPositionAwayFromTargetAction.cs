@@ -13,7 +13,6 @@ public partial class MoveToRandomPositionAwayFromTargetAction : Action
     [SerializeReference] public BlackboardVariable<Transform> Target;
     private float m_PreviousStoppingDistance;
     private float m_DistanceThreshold = 0.2f;
-    private float Speed = 1.0f;
     private float SlowDownDistance = 1.0f;
     private NavMeshAgent m_NavMeshAgent;
 
@@ -34,6 +33,11 @@ public partial class MoveToRandomPositionAwayFromTargetAction : Action
             return Status.Failure;
         }
 
+        if (Enemy.Value.Target == null)
+        {
+            return Status.Failure;
+        }
+
         if (m_NavMeshAgent == null)
         {
             Vector3 agentPosition, locationPosition;
@@ -43,12 +47,12 @@ public partial class MoveToRandomPositionAwayFromTargetAction : Action
                 return Status.Success;
             }
 
-            float speed = Speed;
+            float speed = m_NavMeshAgent.speed;
 
             if (SlowDownDistance > 0.0f && distance < SlowDownDistance)
             {
                 float ratio = distance / SlowDownDistance;
-                speed = Mathf.Max(0.1f, Speed * ratio);
+                speed = Mathf.Max(0.1f, m_NavMeshAgent.speed * ratio);
             }
 
             Vector3 toDestination = locationPosition - agentPosition;
@@ -103,7 +107,6 @@ public partial class MoveToRandomPositionAwayFromTargetAction : Action
             {
                 m_NavMeshAgent.ResetPath();
             }
-            m_NavMeshAgent.speed = Speed;
             m_PreviousStoppingDistance = m_NavMeshAgent.stoppingDistance;
             m_NavMeshAgent.stoppingDistance = m_DistanceThreshold;
             m_NavMeshAgent.SetDestination(locationPosition);

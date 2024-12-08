@@ -47,6 +47,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     protected void Update()
     {
         if (m_isDead) return;
+        m_navAgent.speed = m_stats.MovementSpeed;
         m_graphAgent.Graph.Tick();
         m_stats.Tick(); 
         OnUpdate();
