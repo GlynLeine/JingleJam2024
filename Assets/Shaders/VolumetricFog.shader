@@ -6,6 +6,7 @@ Shader "CustomEffects/Volumetric Fog"
         Tags { "RenderType"="Opaque" "RenderPipeline" = "UniversalPipeline" "UniversalMaterialType"="Lit" }
         LOD 100
         ZWrite Off Cull Off
+		Blend Off
         Pass
         {
             Name "FogRenderPass"
@@ -105,16 +106,18 @@ Shader "CustomEffects/Volumetric Fog"
     
             float4 ComputeFog (Varyings input) : SV_Target
             {
-                float3 sceneRadiance = SampleSceneRadiance(input.texcoord);
-
                 if (_StepCount == 0)
-                    return float4(sceneRadiance, 1);
+                    return float4(0, 0, 0, 0);
 	
                 float3 totalTransmittance = float3(1, 1, 1);
 
                 float3 fogRadiance = MarchRay(input.texcoord, totalTransmittance);
 
-                return float4(sceneRadiance * totalTransmittance + fogRadiance, 1);
+                uint transmittanceR = (uint)(totalTransmittance.r * 2047 + 0.5) << 21;
+                uint transmittanceG = (uint)(totalTransmittance.g * 2047 + 0.5) << 10;
+                uint transmittanceB = (uint)(totalTransmittance.b * 1023 + 0.5) << 0;
+
+                return float4(fogRadiance, asfloat(transmittanceR | transmittanceG | transmittanceB));
             }
 
             #pragma vertex Vert
@@ -132,10 +135,23 @@ Shader "CustomEffects/Volumetric Fog"
             // The Blit.hlsl file provides the vertex shader (Vert),
             // the input structure (Attributes), and the output structure (Varyings)
             #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
+            
+            TEXTURE2D_X_FLOAT(_FogTexture);
 
             float4 CompositeFog (Varyings input) : SV_Target
             {
-                return float4(SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, input.texcoord).rgb, 1);
+                float4 fogData = SAMPLE_TEXTURE2D(_FogTexture, sampler_LinearClamp, input.texcoord);
+                float3 transmittance;
+
+                uint compressedTransmittance = asuint(fogData.a);
+                uint transmittanceR = (compressedTransmittance & 0xFFE00000) >> 21;
+                uint transmittanceG = (compressedTransmittance & 0x001FFC00) >> 10;
+                uint transmittanceB = (compressedTransmittance & 0x000003FF) >> 0;
+                transmittance.r = transmittanceR / 2047.0;
+                transmittance.g = transmittanceR / 2047.0;
+                transmittance.b = transmittanceR / 1023.0;
+
+                return float4(transmittance * SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, input.texcoord).rgb + fogData.rgb, 1);
             }
             
             #pragma vertex Vert

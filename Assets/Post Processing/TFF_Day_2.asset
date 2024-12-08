@@ -171,9 +171,12 @@ MonoBehaviour:
   m_Name: VolumetricFogVolumeComponent
   m_EditorClassIdentifier: 
   active: 1
+  resolutionScale:
+    m_OverrideState: 0
+    m_Value: 0.25
   stepCount:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 100
   fogDensity:
     m_OverrideState: 1
     m_Value: 9
