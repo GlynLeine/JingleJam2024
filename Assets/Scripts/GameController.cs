@@ -88,12 +88,14 @@ public class GameController : MonoBehaviour
             Vector3 tangent = splineTangent.normalized;
             m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.gameObject.transform.rotation, Quaternion.FromToRotation(Vector3.forward, new Vector3(tangent.x, 0.0f, tangent.z)), distToNearestSplinePoint / m_CameraSplineDist * m_CameraAutoRotationSpeed * Time.deltaTime);
         }
+        /*
         else
         {
             m_Camera.transform.position = new Vector3(m_CameraOffset.x + m_PlayerRef.transform.position.x, m_CameraOffset.y + m_PlayerRef.transform.position.y, m_CameraOffset.z + m_PlayerRef.transform.position.z);
             float cur = m_Camera.transform.eulerAngles.y;
             m_Camera.transform.rotation = Quaternion.Euler(0.0f, cur + lookAction.ReadValue<Vector2>().x * m_CameraLookSpeed * Time.deltaTime, 0.0f);
         }
+        */
     }
     void Update()
     {

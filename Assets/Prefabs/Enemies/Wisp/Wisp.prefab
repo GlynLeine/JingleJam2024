@@ -104,12 +104,12 @@ MonoBehaviour:
   m_enemyData: {fileID: 11400000, guid: 3c761ee3e83726445839d0dfb38353d0, type: 2}
   m_targetDetector:
     m_searchRadius: 15
-    m_orbitRadius: 10
+    m_attackRadius: 7
     m_playerMask:
       serializedVersion: 2
       m_Bits: 128
   m_abilityTemplate: {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
-  m_abilityInstance: {fileID: 0}
+  m_abilityInstance: {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
   Timer: 0
 --- !u!114 &1662852654637195432
 MonoBehaviour:

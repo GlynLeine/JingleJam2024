@@ -4,6 +4,7 @@ using UnityEngine;
 public class AbilityManager : MonoBehaviour
 {
     [SerializeField] private Ability[] m_Abilities;
+    [SerializeField] private Animator m_Animator; 
 
     public void Start()
     {
@@ -21,6 +22,10 @@ public class AbilityManager : MonoBehaviour
         }
         //Trigger the requested ability
         m_Abilities[index]?.Activate(gameObject);
+
+        if(m_Animator != null){
+            m_Animator.Play(m_Abilities[index]?.animationName); 
+        }
     }
 
     // Update is called once per frame

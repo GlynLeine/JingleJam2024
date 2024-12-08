@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_RotationSpeed;
 
     private AbilityManager m_AbilityManager;
+    private Animator m_Animator;
 
     private void Start()
     {
@@ -88,6 +91,8 @@ public class PlayerController : MonoBehaviour
         //Cache references to required components / objects 
         m_Rigidbody = GetComponent<Rigidbody>();
         m_CapsuleCollider = GetComponent<CapsuleCollider>();
+
+        m_Animator = GetComponentInChildren<Animator>();
 
         // m_IAMovement = InputSystem.actions.FindAction("Move");
 
@@ -119,6 +124,7 @@ public class PlayerController : MonoBehaviour
             PlayerDeath();
         }
 
+        UpdateAnimControllerState(); 
         ProcessMovement();
 
         if (InputSystem.actions.FindAction("Attack").ReadValue<float>() > 0.0f)
@@ -195,8 +201,16 @@ public class PlayerController : MonoBehaviour
         m_bCanRotate = false;
         //Todo: Trigger a Death animation etc...
         m_StateThisFrame = EPlayerState.Dead;
+        m_Animator.SetTrigger("OnDeath");
+        m_Animator.SetBool("isDead", true);
     }
 
+    private void UpdateAnimControllerState()
+    {
+
+            m_Animator.SetFloat("movementSpeed", 0.0f);
+
+    }
     private void ProcessMovement()
     {
         InputAction movementAction = m_InputActionMappings[EInputActions.Move];
@@ -229,10 +243,19 @@ public class PlayerController : MonoBehaviour
                 {
 
                     RaycastHit hit;
-                    if (Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Infinity))
+                    if (Physics.Raycast(this.transform.position + (m_LookDirection * 10.0f), Vector3.down, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Terrain")))
                     {
                         n = hit.normal;
                     }
+                }
+
+                float n_dot_up = Vector3.Dot(n, Vector3.up);
+                float min = Mathf.Cos(20.0f);
+                float max = Mathf.Cos(20.0f); 
+                if (n_dot_up < 0.9f)
+                {
+                    Debug.Log(n_dot_up); 
+                    return; 
                 }
 
                 //Snap the player to the ground!
@@ -246,6 +269,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             m_LookDirection = new Vector3(velocity.x, /*velocity.y*/ 0.0f, velocity.z).normalized;
+            m_Animator.SetFloat("movementSpeed", ((velocity.magnitude * m_Stats.m_MovementSpeed) / m_Stats.m_MaxMovementSpeed));
 
             /*
             //Snap the player to the navmesh!

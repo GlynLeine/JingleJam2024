@@ -71,7 +71,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: movementSpeedPercent
     m_Mirror: 0
-  m_BlendParameter: maxSpeedPercent
+  m_BlendParameter: movementSpeed
   m_BlendParameterY: motionTime
   m_MinThreshold: 0.2
   m_MaxThreshold: 0.8
@@ -260,9 +260,9 @@ AnimatorController:
   m_Name: AC_Player
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: maxSpeedPercent
+  - m_Name: movementSpeed
     m_Type: 1
-    m_DefaultFloat: 0.9
+    m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
@@ -282,7 +282,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: OnAttack
     m_Type: 9
@@ -370,7 +370,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: maxSpeedPercent
+    m_ConditionEvent: movementSpeed
     m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6835109993587336418}
@@ -568,7 +568,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: maxSpeedPercent
+    m_ConditionEvent: movementSpeed
     m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3837592825285857446}
@@ -615,7 +615,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: maxSpeedPercent
+    m_ConditionEvent: movementSpeed
     m_EventTreshold: 0.6
   - m_ConditionMode: 1
     m_ConditionEvent: isSprinting
@@ -688,12 +688,12 @@ AnimatorStateMachine:
   - {fileID: 6060493935500830597}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 8064787806123826912}
-    second:
-    - {fileID: -6089855161508926378}
   - first: {fileID: 5649046941087386260}
     second:
     - {fileID: 7719990541625088727}
+  - first: {fileID: 8064787806123826912}
+    second:
+    - {fileID: -6089855161508926378}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 690, y: -360, z: 0}
   m_EntryPosition: {x: 300, y: 200, z: 0}
@@ -731,7 +731,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: maxSpeedPercent
+    m_ConditionEvent: movementSpeed
     m_EventTreshold: 0.6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3837592825285857446}
