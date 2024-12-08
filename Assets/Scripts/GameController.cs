@@ -23,8 +23,6 @@ public class GameController : MonoBehaviour
     private Vector3 splineTangent;
     private Vector3 m_CamTgtPos;
     private SplineContainer splineContainer;
-    private System.Collections.Generic.List<Vector3> nearestPoints;
-    private System.Collections.Generic.List<Vector3> tangents;
     private InputAction lookAction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,11 +35,6 @@ public class GameController : MonoBehaviour
         if (spline != null)
             splineContainer = spline.GetComponent<SplineContainer>();
 
-        if (splineContainer != null)
-        {
-            nearestPoints = new System.Collections.Generic.List<Vector3>(splineContainer.Splines.Count);
-            tangents = new System.Collections.Generic.List<Vector3>(splineContainer.Splines.Count);
-        }
         lookAction = InputSystem.actions.FindAction("Look");
     }
 
@@ -49,7 +42,8 @@ public class GameController : MonoBehaviour
     {
         if (splineContainer != null)
         {
-
+            //Find the nearest
+            float nearestDist = Mathf.Infinity;
             for (int i = 0; i < splineContainer.Splines.Count; i++)
             {
                 Spline s = splineContainer.Splines.ElementAt(i);
@@ -57,28 +51,18 @@ public class GameController : MonoBehaviour
                 float3 nearest;
 
                 SplineUtility.GetNearestPoint<Spline>(s, m_PlayerRef.transform.position, out nearest, out t);
-                nearestPoints.Add(SplineUtility.EvaluatePosition<Spline>(s, t));
-                nearestPoints[i] += spline.transform.position;
-                tangents.Add(SplineUtility.EvaluateTangent<Spline>(s, t));
-            }
+                Vector3 splinePoint = (Vector3)nearest;
+                Vector3 tangent = SplineUtility.EvaluateTangent<Spline>(s, t);
 
-            //Find the nearest
-            int nearestIdx = -1;
-            float nearestDist = Mathf.Infinity;
-            for (int i = 0; i < nearestPoints.Count; i++)
-            {
-                float dist = Vector3.Distance(m_PlayerRef.transform.position, nearestPoints[i]);
+                float dist = Vector3.SqrMagnitude(m_PlayerRef.transform.position - splinePoint);
                 if (dist < nearestDist)
                 {
                     nearestDist = dist;
-                    nearestIdx = i;
+                    splineTangent = tangent;
+                    nearestSplinePoint = splinePoint;
                 }
             }
-
-            splineTangent = tangents[nearestIdx];
-            nearestSplinePoint = nearestPoints[nearestIdx];
         }
-
 
         float distToNearestSplinePoint = Vector3.Distance(m_PlayerRef.transform.position, nearestSplinePoint);
         if (distToNearestSplinePoint < m_CameraSplineDist)
