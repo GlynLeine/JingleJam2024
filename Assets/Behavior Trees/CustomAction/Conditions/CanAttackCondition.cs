@@ -12,8 +12,8 @@ public partial class CanAttackCondition : Condition
     {
 
         Enemy.Value.NavAgent.stoppingDistance = Enemy.Value.AttackRadius;
-        Enemy.Value.NavAgent.enabled = !Enemy.Value.IsWithinOrbitRadius;
-        return Enemy.Value.IsWithinOrbitRadius;
+        Enemy.Value.NavAgent.enabled = !Enemy.Value.IsWithinAttackRadius;
+        return Enemy.Value.IsWithinAttackRadius;
     }
 
     public override void OnStart()
