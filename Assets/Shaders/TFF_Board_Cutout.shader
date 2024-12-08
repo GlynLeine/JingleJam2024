@@ -36,7 +36,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 		
 
-		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Transparent" "Queue"="Transparent" "UniversalMaterialType"="Unlit" }
+		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Opaque" "Queue"="Geometry" "UniversalMaterialType"="Unlit" }
 
 		Cull Back
 		AlphaToMask Off
@@ -162,7 +162,7 @@ Shader "Toon/TFF_Board_Cutout"
 			Tags { "LightMode"="UniversalForwardOnly" }
 
 			Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
-			ZWrite Off
+			ZWrite On
 			ZTest LEqual
 			Offset 0 , 0
 			ColorMask RGBA
@@ -171,7 +171,7 @@ Shader "Toon/TFF_Board_Cutout"
 
 			HLSLPROGRAM
 
-			#pragma multi_compile_local _ALPHATEST_ON
+			#define _ALPHATEST_ON
 			#pragma shader_feature_local _RECEIVE_SHADOWS_OFF
 			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer

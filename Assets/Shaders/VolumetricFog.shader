@@ -40,10 +40,9 @@ Shader "CustomEffects/Volumetric Fog"
             float _LightScale;
 
             float3 GetRay(float2 texcoord)
-            {
-	            float2 xy = (texcoord * 2 - 1) * (2 * tan(0.5 * _Fov));
-                xy.x *= _Resolution.x / _Resolution.y;
-                return normalize(mul(_CameraMatrix, float4(xy, 1, 0)).xyz);
+            { 
+                float3 worldPos = ComputeWorldSpacePosition(texcoord, SampleSceneDepth(texcoord), UNITY_MATRIX_I_VP);
+                return normalize(worldPos - _WorldSpaceCameraPos);
             }
 
             float3 SampleSceneRadiance(float2 texcoord)
@@ -59,24 +58,31 @@ Shader "CustomEffects/Volumetric Fog"
 
             float3 MarchRay(float2 texcoord, inout float3 totalTransmittance)
             {
-	            float3 radiance = float3(0, 0, 0);
+                float sampledDepth = SampleSceneDepth(texcoord);
+
+                float scaledDensity = _Density * 0.001;
+                float3 densitySigmaT = scaledDensity * _SigmaT.rgb;
                 float3 rayDir = GetRay(texcoord);
-                float traversalDepth = LinearEyeDepth(SampleSceneDepth(texcoord), _ZBufferParams);
-
-	            float stepSize = traversalDepth / _StepCount;
-
-	            float3 samplePoint = _WorldSpaceCameraPos;
 
                 float cosTheta = dot(rayDir, _MainLightPosition.xyz);
 	            float phaseFunction = lerp(HenyeyGreenstein(-0.3, cosTheta), HenyeyGreenstein(0.3, cosTheta), 0.7);
+                
+                if(sampledDepth.x < 0.0000001) 
+                {
+                    totalTransmittance = float3(1, 1, 1);
+                    return float3(0, 0, 0);//(_SigmaS.rgb * scaledDensity * _MainLightColor.rgb * _LightScale * phaseFunction)  / densitySigmaT;
+                }
 
-                float scaledDensity = _Density * 0.001;
+	            float3 radiance = float3(0, 0, 0);
+                float traversalDepth = LinearEyeDepth(sampledDepth, _ZBufferParams);
+
+	            float stepSize = traversalDepth / _StepCount;
+			    float3 transmittance = exp(-stepSize * densitySigmaT);
+
+	            float3 samplePoint = _WorldSpaceCameraPos + rayDir;
 
                 for(int i = 0; i < _StepCount; i++)
                 {
-                    float3 densitySigmaT = scaledDensity * _SigmaT.rgb;
-
-			        float3 transmittance = exp(-stepSize * densitySigmaT);
 
                     Light light = GetMainLight(TransformWorldToShadowCoord(samplePoint), samplePoint, half4(1, 1, 1, 1));
 

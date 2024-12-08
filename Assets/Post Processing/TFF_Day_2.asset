@@ -172,16 +172,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   stepCount:
-    m_OverrideState: 0
-    m_Value: 100
+    m_OverrideState: 1
+    m_Value: 50
   fogDensity:
     m_OverrideState: 1
     m_Value: 9
   scatteringCoefficients:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   absorptionCoefficients:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 0}
   lightScale:
     m_OverrideState: 1
