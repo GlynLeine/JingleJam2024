@@ -93,6 +93,7 @@ MonoBehaviour:
   m_targetDetector:
     m_searchRadius: 14
     m_attackRadius: 7
+    m_fleeRadius: 0
     m_playerMask:
       serializedVersion: 2
       m_Bits: 128
@@ -111,18 +112,10 @@ MonoBehaviour:
   m_Graph: {fileID: -7097453053501457883, guid: 575ed64faab16964581f2a41304cf7e7, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8214157890533982623
-  - rid: 1322257450997645382
+  - rid: 8214158003712557056
   references:
     version: 2
     RefIds:
-    - rid: 1322257450997645382
-      type: {class: 'BlackboardVariable`1[[Enemy, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11610327056551011029
-          m_Value1: 11742445917534810195
-        Name: Golem
-        m_Value: {fileID: 6658903058153359816}
     - rid: 8214157890533982623
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -131,6 +124,14 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 115980641460726386}
+    - rid: 8214158003712557056
+      type: {class: 'BlackboardVariable`1[[Golem, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 10104987552786587068
+          m_Value1: 6040407463637673691
+        Name: Golem
+        m_Value: {fileID: 6658903058153359816}
 --- !u!195 &5961564108999605784
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -0.1
+  m_BaseOffset: -1.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!65 &2078295678417780296
@@ -172,8 +173,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 4, z: 2}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 3, y: 5.442197, z: 2}
+  m_Center: {x: 0, y: 4.7210984, z: 0}
 --- !u!1 &5970818788741303645
 GameObject:
   m_ObjectHideFlags: 0

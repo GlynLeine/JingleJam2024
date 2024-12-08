@@ -17,7 +17,7 @@ public class AbilityGain : MonoBehaviour, IInteractable
     {
         if(m_SkillMenu == null) //When the player accepts a skill, destroy the thingy so they can't thing the thing if the thing... yeah
         {
-            GameObject.Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
