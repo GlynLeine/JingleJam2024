@@ -14,7 +14,7 @@ public partial class WispMovesToTargetAction : Action
     {
         var navAgent = Enemy.Value.NavAgent;
         navAgent.enabled = true;
-        navAgent.stoppingDistance = 1.0f;
+        navAgent.stoppingDistance = Enemy.Value.AttackRadius;
         navAgent.SetDestination(Target.Value.position);
         return Status.Success;
     }

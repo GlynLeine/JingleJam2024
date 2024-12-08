@@ -79,7 +79,6 @@ public class VolumetricFogRenderPass : ScriptableRenderPass
         material.SetVector(resolutionId, new Vector4(cameraData.cameraTargetDescriptor.width, cameraData.cameraTargetDescriptor.height));
         material.SetFloat(fovId, cameraData.camera.fieldOfView * Mathf.Deg2Rad);
         material.SetMatrix(cameraMatrixId, cameraData.camera.transform.localToWorldMatrix);
-        //material.SetTexture(mainLightShadowmapTextureId, resourceData.mainShadowsTexture);
 
         int stepCount = volumeComponent.stepCount.overrideState ? volumeComponent.stepCount.value : defaultSettings.stepCount;
         material.SetInt(stepCountId, stepCount);

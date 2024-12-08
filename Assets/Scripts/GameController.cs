@@ -1,16 +1,9 @@
 using Unity.Mathematics;
 using UnityEngine;
-using static UnityEngine.UI.GridLayoutGroup;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 using UnityEngine.Splines;
 using UnityEngine.InputSystem;
 using System.Linq;
-using NUnit.Framework;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.Rendering;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
-
 public class GameController : MonoBehaviour
 {
     [SerializeField] public static float m_TickRateSeconds = 0.2f;
@@ -24,7 +17,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float m_CameraLookSpeed = 4.0f;
     [SerializeField] private float m_CameraAutoRotationSpeed = 2.0f;
     [SerializeField] private GameObject spline;
-    [SerializeField] private GameObject m_DeathScreen; 
+    [SerializeField] private GameObject m_DeathScreen;
     private Vector3 nearestSplinePoint;
     private Vector3 splineTangent;
     private Vector3 nearestSplinePointCandidate;
@@ -117,13 +110,16 @@ public class GameController : MonoBehaviour
             m_PlayerController.Tick();
         }
 
-        if(m_PlayerController.Stats.Health <= 0.0f)
+        if (m_DeathScreen != null)
         {
-            m_DeathScreen.gameObject.SetActive(true); 
-        }
-        else if(m_PlayerController.Stats.Health > 0.0f)
-        {
-            m_DeathScreen.gameObject.SetActive(false); 
+            if (m_PlayerController.Stats.Health <= 0.0f)
+            {
+                m_DeathScreen.gameObject.SetActive(true);
+            }
+            else if (m_PlayerController.Stats.Health > 0.0f)
+            {
+                m_DeathScreen.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -148,15 +144,15 @@ public class GameController : MonoBehaviour
     public void OnRespawnButtonPressed()
     {
         //Reload the scene...!
-        Debug.Log("Respawn Button Pressed"); 
-        SceneManager.LoadScene("Main_Level"); 
+        Debug.Log("Respawn Button Pressed");
+        SceneManager.LoadScene("Main_Level");
     }
 
     public void OnMainMenuButtonPressed()
     {
         //Reload the scene...!
         Debug.Log("Main Menu Button Pressed");
-        SceneManager.LoadScene("Main_Level"); 
+        SceneManager.LoadScene("Main_Level");
     }
 
 }

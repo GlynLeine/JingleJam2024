@@ -53,9 +53,9 @@ public class Projectile : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(this.transform.position, m_Size);
+        Gizmos.DrawSphere(transform.position, m_Size);
 
-        Gizmos.DrawRay(this.transform.position + new Vector3(0.0f, 1.0f, 0.0f), m_Direction);
+        Gizmos.DrawRay(transform.position + new Vector3(0.0f, 1.0f, 0.0f), m_Direction);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -63,7 +63,7 @@ public class Projectile : MonoBehaviour
         //Only deal damage if we're on supported layers; Set this up for no friendly fire!
         if (l != 0)
         {
-            Debug.Log("Layer Intersection from " + LayerMask.LayerToName(this.gameObject.layer) + "with " + LayerMask.LayerToName(other.gameObject.layer));
+            Debug.Log("Layer Intersection from " + LayerMask.LayerToName(gameObject.layer) + "with " + LayerMask.LayerToName(other.gameObject.layer));
             IDamageable dmg = other.GetComponentInParent<IDamageable>();//GetComponentInParent checks the current object as well
             if (dmg == null) return;
 
