@@ -6,7 +6,12 @@ public class Stats : MonoBehaviour
     [Header("Health Statistics")]
     [SerializeField]
     private float m_Health;
-    public float Health => m_Health;
+    public float Health
+    {
+        get => m_Health;
+        set => m_Health = value;
+    }
+        
     [SerializeField]
     private float m_MaxHealth;
     public float MaxHealth => m_MaxHealth;

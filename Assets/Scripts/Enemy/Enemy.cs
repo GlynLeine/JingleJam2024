@@ -60,7 +60,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
 
     public abstract void Attack();
 
-    public abstract void TakeDamage();
+    public abstract void TakeDamage(float damage);
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()

@@ -34,12 +34,12 @@ public class Ability_Projectile : Ability
 
             //Spawn a new projectile with this instance's parameters
             GameObject projectile = ProjectilePrefab != null ? Instantiate(ProjectilePrefab) : new GameObject();
-            projectile.transform.parent = owner.transform;
+            //projectile.transform.parent = owner.transform;
             p = projectile.GetComponent<Projectile>();
             if (p == null)
                 p = projectile.AddComponent<Projectile>();
             p.m_Origin = owner.transform.position;
-            p.m_Direction = owner.transform.forward;//owner.GetComponent<PlayerController>().GetLookAtDirection();
+            p.m_Direction = owner.gameObject.CompareTag("Player") ? owner.GetComponent<PlayerController>().GetLookAtDirection() : owner.transform.forward;//
             p.m_Damage = damage;
             p.m_Speed = speed;
             p.m_Size = size;

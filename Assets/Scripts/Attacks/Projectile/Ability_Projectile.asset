@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73af89bd12c4b2f49b0e2f7255a21c2f, type: 3}
   m_Name: Ability_Projectile
   m_EditorClassIdentifier: 
-  type: 3
   status: 0
   name: DbgProjectile
   description: 
   animationName: 
   vfx: {fileID: 0}
-  castTimer: 0.04
-  castTime: 0
+  castTimer: 1
+  castTime: 1
   recastTimer: 0.31
   recastTime: 0.31
   direction: {x: 0, y: 0, z: 0}
   speed: 31.5
   size: 1
-  damage: 48
+  damage: 20
   range: 229.95
+  ProjectilePrefab: {fileID: 2312245140150793046, guid: 0b4706ccfbbebad41a9675b761a9140e, type: 3}
   aoeIndicatorFX: {fileID: 0}

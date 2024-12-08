@@ -16,7 +16,7 @@ public class Golem : Enemy
         m_abilityManager.Activate(Random.Range(0, m_abilityManager.GetAbilityCount()), Target);
     }
 
-    public override void TakeDamage()
+    public override void TakeDamage(float damage)
     {
     }
 
