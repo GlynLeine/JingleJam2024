@@ -4937,6 +4937,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7835998081429301812}
+  - component: {fileID: 1086558977788081842}
+  - component: {fileID: 2372804741280578775}
   - component: {fileID: 5474139869631603280}
   - component: {fileID: 6372540166868398967}
   - component: {fileID: 5225125013411268518}
@@ -4964,6 +4966,43 @@ Transform:
   - {fileID: 5978033026724173872}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1086558977788081842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911636565289052322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365c2b6d136de6e4da2f4744cdc0a44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Health: 100
+  m_MaxHealth: 100
+  m_HealthRegenPerTick: 0
+  m_Mana: 100
+  m_MaxMana: 100
+  m_ManaRegenPerTick: 10
+  m_MovementSpeed: 7
+  m_MaxMovementSpeed: 7
+  m_StrengthBonus: 0
+  m_AttackSpeedScale: 1
+  m_DefenceBonus: 10
+--- !u!114 &2372804741280578775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911636565289052322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543b65c63c95aa4478c53bf0baa8139b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Abilities:
+  - {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
 --- !u!114 &5474139869631603280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4976,15 +5015,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78cd2ca0bbb6c842996dede4af9649a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyData: {fileID: 11400000, guid: 3c761ee3e83726445839d0dfb38353d0, type: 2}
   m_targetDetector:
     m_searchRadius: 15
     m_attackRadius: 8
     m_playerMask:
       serializedVersion: 2
       m_Bits: 128
-  m_abilityTemplate: {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
-  m_abilityInstance: {fileID: 0}
   Timer: 0
 --- !u!114 &6372540166868398967
 MonoBehaviour:

@@ -12,7 +12,7 @@ public class Wisp : Enemy
 
     public override void Attack()
     {
-        m_abilityManager.Activate(0, Target);
+        m_abilityManager.Activate(Random.Range(0, m_abilityManager.GetAbilityCount()), Target);
     }
 
     public override void TakeDamage()
