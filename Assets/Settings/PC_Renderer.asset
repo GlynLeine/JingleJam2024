@@ -65,8 +65,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79195dafe0e6a448a6016c5752ada44, type: 3}
   m_Name: Volumetric Fog
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
+    resolutionScale: 0.25
     stepCount: 50
     fogDensity: 64
     scatteringCoefficients: {r: 1, g: 1, b: 1, a: 1}
