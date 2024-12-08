@@ -15,11 +15,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     public NavMeshAgent NavAgent => m_navAgent;
     public Transform Target => m_targetDetector.FindTarget(transform);
     public float MoveSpeed => m_stats.MovementSpeed;
-    public bool IsWithinRadius => m_targetDetector.IsWithinRadius;
-    public bool IsWithinattackRadius => m_targetDetector.IsWithinAttackRadius;
     public float AttackRadius => m_targetDetector.AttackRadius;
-    public bool IsWithinOrbitRadius => m_targetDetector.IsWithinAttackRadius;
-
+    public float SearchRadius => m_targetDetector.SearchRadius;
+    public float FleeRadius => m_targetDetector.FleeRadius;
+    public bool IsWithinRadius => m_targetDetector.IsWithinRadius;
+    public bool IsWithinAttackRadius => m_targetDetector.IsWithinAttackRadius;
+    public bool IsWithinFleeRadius => m_targetDetector.IsWithinFleeRadius;
     protected abstract void Initialize();
     protected abstract void OnUpdate();
     protected abstract void OnDeath();
@@ -39,7 +40,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     protected void Start()
     {
         if (m_isDead) return;
-        //m_abilityInstance = Instantiate(m_abilityTemplate);
         m_graphAgent.Start();
         Initialize();
     }
@@ -47,7 +47,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     protected void Update()
     {
         if (m_isDead) return;
-        //m_abilityInstance?.Tick(Time.deltaTime);
         m_graphAgent.Graph.Tick();
         m_stats.Tick(); 
         OnUpdate();
@@ -65,7 +64,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
 
             //NOTE: Do we want to destroy the gameobject on death, and handle spawning via a spawner? 
             //I'll just destroy them for now. 
-            GameObject.Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
