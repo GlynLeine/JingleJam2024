@@ -15,16 +15,16 @@ MonoBehaviour:
   status: 0
   name: Rock Throw
   description: 
-  animationName: 
+  animationName: Debug_Skill
   vfx: {fileID: 0}
   castTimer: 0
   castTime: 1
   recastTimer: 0
-  recastTime: 5
+  recastTime: 0.5
   direction: {x: 0, y: 0, z: 0}
   speed: 30
   size: 1
   damage: 50
-  range: 200
+  health: 3
   ProjectilePrefab: {fileID: 2312245140150793046, guid: 0b4706ccfbbebad41a9675b761a9140e, type: 3}
   aoeIndicatorFX: {fileID: 0}

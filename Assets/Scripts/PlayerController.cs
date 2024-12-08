@@ -1,14 +1,6 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-using UnityEngine.VFX;
 
 public enum EInputActions
 {
@@ -79,6 +71,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private float m_MovementDeadzone; //Minimum magnitude of the movement vector
     [SerializeField] private bool m_bCanRotate;
     [SerializeField] private float m_RotationSpeed;
+
+    [SerializeField] private TargetDetector m_targetDetector = new();
 
     public GameObject m_Interactable;   //This is public! Yes, it's bad code! no, I don't care!
     private AbilityManager m_AbilityManager;

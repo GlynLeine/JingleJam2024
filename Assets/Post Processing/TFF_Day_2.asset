@@ -49,7 +49,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.35
+    m_Value: 0
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -93,6 +93,7 @@ MonoBehaviour:
   - {fileID: 4737165417429899096}
   - {fileID: -7827806769154657287}
   - {fileID: 6118115892689085527}
+  - {fileID: 8554157169045876377}
 --- !u!114 &4737165417429899096
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -157,3 +158,31 @@ MonoBehaviour:
   intensity:
     m_OverrideState: 1
     m_Value: 0.125
+--- !u!114 &8554157169045876377
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca49a13ef3662c744b04febb0687ab5c, type: 3}
+  m_Name: VolumetricFogVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  stepCount:
+    m_OverrideState: 0
+    m_Value: 100
+  fogDensity:
+    m_OverrideState: 1
+    m_Value: 9
+  scatteringCoefficients:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  absorptionCoefficients:
+    m_OverrideState: 0
+    m_Value: {r: 0, g: 0, b: 0, a: 0}
+  lightScale:
+    m_OverrideState: 1
+    m_Value: 4
