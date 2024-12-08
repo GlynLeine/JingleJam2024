@@ -62,6 +62,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6967089713678759758}
+  - component: {fileID: 1035730079526821809}
+  - component: {fileID: 5366693046733528032}
   - component: {fileID: 1389596491133123988}
   - component: {fileID: 1662852654637195432}
   - component: {fileID: 9144119477245987935}
@@ -89,6 +91,43 @@ Transform:
   - {fileID: 8018711802836417670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035730079526821809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009894420648145261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365c2b6d136de6e4da2f4744cdc0a44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Health: 50
+  m_MaxHealth: 50
+  m_HealthRegenPerTick: 0
+  m_Mana: 50
+  m_MaxMana: 560
+  m_ManaRegenPerTick: 2
+  m_MovementSpeed: 4
+  m_MaxMovementSpeed: 4
+  m_StrengthBonus: 0
+  m_AttackSpeedScale: 1
+  m_DefenceBonus: 5
+--- !u!114 &5366693046733528032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009894420648145261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543b65c63c95aa4478c53bf0baa8139b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Abilities:
+  - {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
 --- !u!114 &1389596491133123988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,15 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78cd2ca0bbb6c842996dede4af9649a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyData: {fileID: 11400000, guid: 3c761ee3e83726445839d0dfb38353d0, type: 2}
   m_targetDetector:
     m_searchRadius: 15
     m_attackRadius: 7
     m_playerMask:
       serializedVersion: 2
       m_Bits: 128
-  m_abilityTemplate: {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
-  m_abilityInstance: {fileID: 0}
   Timer: 0
 --- !u!114 &1662852654637195432
 MonoBehaviour:

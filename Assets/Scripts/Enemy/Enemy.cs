@@ -8,7 +8,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttacker
     protected Stats m_stats;
     protected AbilityManager m_abilityManager;
     [SerializeField]
-    protected TargetDetector m_targetDetector;
+    protected TargetDetector m_targetDetector = new();
     protected bool m_isDead = false;
     protected BehaviorGraphAgent m_graphAgent;
     protected NavMeshAgent m_navAgent;
