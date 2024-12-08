@@ -10,12 +10,10 @@ public class Golem : Enemy
     protected override void OnDeath() { }
     public override void Attack()
     {
-        //if (m_abilityInstance == null)
-        //    m_abilityInstance = Instantiate(m_abilityTemplate);
+        if(m_abilityManager == null)
+            m_abilityManager = GetComponent<AbilityManager>();
 
-        //(m_abilityInstance as Ability_Arc).Target = Target;
-        //m_abilityInstance.Activate(gameObject);
-        m_abilityManager.Activate(0);
+        m_abilityManager.Activate(Random.Range(0, m_abilityManager.GetAbilityCount()), Target);
     }
 
     public override void TakeDamage()
