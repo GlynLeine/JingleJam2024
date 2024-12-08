@@ -18,7 +18,7 @@ public class Ability_Projectile : Ability
         base.Tick(dt); 
     }
 
-    public override void Activate(GameObject owner)
+    public override void Activate(GameObject owner, Transform target = null)
     {
         base.Activate(owner);
         if (status == EAbilityStatus.Ready)

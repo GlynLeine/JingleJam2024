@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65484162b07b934689fa08ed449b288, type: 3}
   m_Name: WispData
   m_EditorClassIdentifier: 
-  Health: 200
-  Damage: 50
-  MoveSpeed: 4
+  Health: 75
+  Damage: 15
+  MoveSpeed: 10

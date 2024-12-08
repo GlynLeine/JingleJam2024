@@ -13,7 +13,7 @@ public class AbilityManager : MonoBehaviour
             m_Abilities[i] = (Ability)ScriptableObject.Instantiate(m_Abilities[i]);     //Create instances of the referenced abilities. 
         }
     }
-    public void Activate(int index)
+    public void Activate(int index, Transform target = null)
     {
         if (index > m_Abilities.Length)
         {

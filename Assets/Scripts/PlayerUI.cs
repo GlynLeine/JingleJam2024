@@ -44,16 +44,16 @@ public class PlayerUI : MonoBehaviour
         //Set each attribute on the UI
         //Health
         {
-            int health = (int)m_PlayerRef.Stats.m_Health;
-            int maxHealth = (int)m_PlayerRef.Stats.m_MaxHealth;
+            int health = (int)m_PlayerRef.Stats.Health;
+            int maxHealth = (int)m_PlayerRef.Stats.MaxHealth;
             m_HPSlider.value = (float)health / (float)maxHealth;
             m_CurrentHPLabel.text = health.ToString();
             m_MaxHPLabel.text = maxHealth.ToString();
         }
         //Mana
         {
-            int mana = (int)m_PlayerRef.Stats.m_Mana;
-            int maxMana = (int)m_PlayerRef.Stats.m_MaxMana;
+            int mana = (int)m_PlayerRef.Stats.Mana;
+            int maxMana = (int)m_PlayerRef.Stats.MaxMana;
             m_MPSlider.value = (float)mana / (float)maxMana;
             m_CurrentMPLabel.text = mana.ToString();
             m_MaxMPLabel.text = maxMana.ToString();

@@ -36,11 +36,11 @@ public class Ability : ScriptableObject
     public float castTime = 0.0f;
     public float recastTimer = 0.0f;
     public float recastTime = 0.0f;
-    private float executionTimer = 0.0f;
+    protected float executionTimer = 0.0f;
 
     public virtual void Tick(float dt)
     {
-       // Debug.Log(name + " Tick");
+        // Debug.Log(name + " Tick");
 
         //Set the appropriate skill state
         switch (status)
@@ -73,7 +73,7 @@ public class Ability : ScriptableObject
         }
     }
 
-    public virtual void Activate(GameObject owner)
+    public virtual void Activate(GameObject owner, Transform target = null)
     {
 
     }

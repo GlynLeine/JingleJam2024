@@ -49,12 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enemyData: {fileID: 11400000, guid: 492b76c981f8976428dd57078642a6ae, type: 2}
   m_targetDetector:
-    m_searchRadius: 15
-    m_orbitRadius: 7
+    m_searchRadius: 14
+    m_attackRadius: 7
     m_playerMask:
       serializedVersion: 2
       m_Bits: 128
-  m_abilityTemplate: {fileID: 11400000, guid: e1658da72f5c4c441a67c3752c767a5e, type: 2}
+  m_abilityTemplate: {fileID: 11400000, guid: 8edaffc86c9a84a4e9b089f93d753b15, type: 2}
   m_abilityInstance: {fileID: 0}
 --- !u!114 &2645584639757145274
 MonoBehaviour:
