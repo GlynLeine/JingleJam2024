@@ -1,11 +1,8 @@
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering.RenderGraphModule.Util;
 using UnityEngine.Rendering.Universal;
-using static Unity.Burst.Intrinsics.X86.Avx;
-using static UnityEditor.TerrainTools.MeshUtils;
 using static UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtils;
 
 public class VolumetricFogRenderPass : ScriptableRenderPass
@@ -130,6 +127,9 @@ public class VolumetricFogRenderPass : ScriptableRenderPass
 
     public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer frameData)
     {
+        if(material == null)
+            return;
+
         UniversalResourceData resourceData = frameData.Get<UniversalResourceData>();
 
         // The following line ensures that the render pass doesn't blit
