@@ -124,13 +124,32 @@ public class PlayerController : MonoBehaviour
             PlayerDeath();
         }
 
-        UpdateAnimControllerState(); 
+        UpdateAnimControllerState();
         ProcessMovement();
 
+        //TODO: Refactor to use the ability bindings; This is bad code!!!
         if (InputSystem.actions.FindAction("Attack").ReadValue<float>() > 0.0f)
+        {
+            Debug.Log("Attack!");
+        }
+        else if (InputSystem.actions.FindAction("Skill_1").ReadValue<float>() > 0.0f)
         {
             m_AbilityManager.Activate(0);   //Activate the skill at the given index
         }
+        else if (InputSystem.actions.FindAction("Skill_2").ReadValue<float>() > 0.0f)
+        {
+            m_AbilityManager.Activate(1);   //Activate the skill at the given index
+        }
+        else if (InputSystem.actions.FindAction("Skill_3").ReadValue<float>() > 0.0f)
+        {
+            m_AbilityManager.Activate(2);   //Activate the skill at the given index
+        }
+        else if (InputSystem.actions.FindAction("Skill_1").ReadValue<float>() > 0.0f)
+        {
+            //m_AbilityManager.Activate(0);   //Activate the skill at the given index
+            Debug.Log("Dodge Roll!");
+        }
+
     }
 
     private void LateUpdate()
@@ -208,7 +227,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateAnimControllerState()
     {
 
-            m_Animator.SetFloat("movementSpeed", 0.0f);
+        m_Animator.SetFloat("movementSpeed", 0.0f);
 
     }
     private void ProcessMovement()
@@ -251,11 +270,11 @@ public class PlayerController : MonoBehaviour
 
                 float n_dot_up = Vector3.Dot(n, Vector3.up);
                 float min = Mathf.Cos(20.0f);
-                float max = Mathf.Cos(20.0f); 
+                float max = Mathf.Cos(20.0f);
                 if (n_dot_up < 0.9f)
                 {
-                    Debug.Log(n_dot_up); 
-                    return; 
+                    Debug.Log(n_dot_up);
+                    return;
                 }
 
                 //Snap the player to the ground!
@@ -269,7 +288,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             m_LookDirection = new Vector3(velocity.x, /*velocity.y*/ 0.0f, velocity.z).normalized;
-            m_Animator.SetFloat("movementSpeed", ((velocity.magnitude * m_Stats.m_MovementSpeed) / m_Stats.m_MaxMovementSpeed));
+            m_Animator.SetFloat("movementSpeed", ((velocity.magnitude * m_Stats.MovementSpeed) / m_Stats.MaxMovementSpeed));
 
             /*
             //Snap the player to the navmesh!
