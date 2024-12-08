@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e26dc2f72cfa454191f630ad076c28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 3295632009141490131}
   m_SkeletalMeshParent: {fileID: 9023006142077745661}
   m_ActionMappings:
   - mapping: 1
@@ -246,6 +246,11 @@ PrefabInstance:
 --- !u!4 &33974546935496678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3434753548034499102, guid: b9ea5a84b272c6a48991302f354f210c, type: 3}
+  m_PrefabInstance: {fileID: 3445818368935157240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3295632009141490131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 175198747665124395, guid: b9ea5a84b272c6a48991302f354f210c, type: 3}
   m_PrefabInstance: {fileID: 3445818368935157240}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6250686484853685144
