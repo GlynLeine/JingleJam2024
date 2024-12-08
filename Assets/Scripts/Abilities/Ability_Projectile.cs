@@ -44,12 +44,15 @@ public class Ability_Projectile : Ability
             p.m_Speed = speed;
             p.m_Size = size;
             p.m_Range = range;
+            //TODO: We could probably save some frames by caching this stuff... 
+            p.m_LayerMask = owner.gameObject.CompareTag("Player") ? 1 << LayerMask.NameToLayer("Enemy") : LayerMask.NameToLayer("Player");    //What layers do we want to be able to collide with? 
             p.Initialize();
 
             //(owner.transform.position, direction, speed, size, range, damage))
 
             projectile.name = this.name + "_projectile";
             projectile.gameObject.layer = owner.layer;
+            projectile.gameObject.layer = owner.gameObject.CompareTag("Player") ? LayerMask.NameToLayer("Player_Attack") : LayerMask.NameToLayer("Enemy_Attack");
         }
     }
 

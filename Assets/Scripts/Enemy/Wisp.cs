@@ -17,6 +17,6 @@ public class Wisp : Enemy
 
     public override void TakeDamage(float damage)
     {
-        
+        m_stats.Health -= damage;    
     }
 }

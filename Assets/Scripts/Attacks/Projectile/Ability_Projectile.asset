@@ -19,12 +19,12 @@ MonoBehaviour:
   vfx: {fileID: 0}
   castTimer: 1
   castTime: 1
-  recastTimer: 0.31
-  recastTime: 0.31
+  recastTimer: 0.5
+  recastTime: 0.5
   direction: {x: 0, y: 0, z: 0}
-  speed: 31.5
+  speed: 30
   size: 1
-  damage: 20
-  range: 229.95
+  damage: 1
+  range: 10
   ProjectilePrefab: {fileID: 2312245140150793046, guid: 0b4706ccfbbebad41a9675b761a9140e, type: 3}
   aoeIndicatorFX: {fileID: 0}

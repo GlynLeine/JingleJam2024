@@ -25,6 +25,8 @@ public class Projectile : MonoBehaviour
     private Rigidbody m_Rigidbody;
     private CapsuleCollider m_CapsuleCollider;
 
+    public LayerMask m_LayerMask;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Initialize()
     {
@@ -59,17 +61,21 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other == this)
+        int l = (m_LayerMask & (1 << other.transform.gameObject.layer));
+        //Only deal damage if we're on supported layers; Set this up for no friendly fire!
+        if (l != 0)
         {
-            return; 
-        } 
-        LayerMask mask = (1 << this.gameObject.layer);
-
-        //Only deal damage if we're on different layers; No friendly fire!
-        if ((mask.value & (1 << other.transform.gameObject.layer)) > 0)
-        {
+            Debug.Log("Layer Intersection from " + LayerMask.LayerToName(this.gameObject.layer) + "with " + LayerMask.LayerToName(other.gameObject.layer));
             IDamageable dmg = other.GetComponent<IDamageable>();
-            if (dmg != null)
+            if (dmg == null)
+            {
+                //Search the Parent object...
+                dmg = other.GetComponentInParent<IDamageable>();
+                if(dmg == null)
+                {
+                    return;
+                }
+            }
             {
                 Debug.Log("Projectile Hit!" + other.name);
                 dmg.TakeDamage(m_Damage);
