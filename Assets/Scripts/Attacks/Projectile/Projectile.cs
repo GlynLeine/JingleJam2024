@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,10 +18,9 @@ public class Projectile : MonoBehaviour
     public float m_Size;
     [HideInInspector]
     public int m_Damage;
-    [HideInInspector]
-    public float m_Range;
-    private float m_DistanceTravelled;
     public VisualEffect vfx;
+    [Tooltip("This is the health of the projectile. Each enemy a projectile hits will take off a health from the porjectile. If the health is 0 it will destroy itself")]
+    public int m_Health = 3;
 
     private Rigidbody m_Rigidbody;
     private CapsuleCollider m_CapsuleCollider;
@@ -31,26 +31,24 @@ public class Projectile : MonoBehaviour
     public void Initialize()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        m_Rigidbody.isKinematic = true;
+        m_Rigidbody.isKinematic = false;
         m_Rigidbody.useGravity = false;
         m_Rigidbody.position = m_Origin;
 
         m_CapsuleCollider = GetComponent<CapsuleCollider>();
         m_CapsuleCollider.radius = m_Size;
         m_CapsuleCollider.isTrigger = true;
+        m_Rigidbody.AddForce(m_Direction * m_Speed * 100f);
+        m_Rigidbody.AddTorque(m_Direction * m_Speed * 100f);
+        StartCoroutine(WaitForSecondsThenDie());
 
     }
 
-    // Update is called once per frame
-    public void Tick()
-    {
-        m_Rigidbody.MovePosition(m_Rigidbody.position + (m_Direction * m_Speed * Time.deltaTime));
-        m_DistanceTravelled += m_Speed * Time.deltaTime;
-        if (m_DistanceTravelled >= m_Range)
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    //// Update is called once per frame
+    //public void Tick()
+    //{
+    //    m_Rigidbody.MovePosition(m_Rigidbody.position + (m_Direction * m_Speed * Time.deltaTime));
+    //}
 
     private void OnDrawGizmos()
     {
@@ -66,20 +64,21 @@ public class Projectile : MonoBehaviour
         if (l != 0)
         {
             Debug.Log("Layer Intersection from " + LayerMask.LayerToName(this.gameObject.layer) + "with " + LayerMask.LayerToName(other.gameObject.layer));
-            IDamageable dmg = other.GetComponent<IDamageable>();
-            if (dmg == null)
-            {
-                //Search the Parent object...
-                dmg = other.GetComponentInParent<IDamageable>();
-                if(dmg == null)
-                {
-                    return;
-                }
-            }
-            {
-                Debug.Log("Projectile Hit!" + other.name);
-                dmg.TakeDamage(m_Damage);
-            }
+            IDamageable dmg = other.GetComponentInParent<IDamageable>();//GetComponentInParent checks the current object as well
+            if (dmg == null) return;
+
+            Debug.Log("Projectile Hit!" + other.name);
+            dmg.TakeDamage(m_Damage);
+            if (m_Health == 0)
+                Destroy(gameObject);
+            else 
+                m_Health--;
         }
+    }
+
+    private IEnumerator WaitForSecondsThenDie()
+    {
+        yield return new WaitForSeconds(3.0f);
+        Destroy(gameObject);
     }
 }

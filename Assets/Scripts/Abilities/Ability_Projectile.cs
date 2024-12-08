@@ -9,7 +9,7 @@ public class Ability_Projectile : Ability
     public float speed;
     public float size;
     public int damage;
-    public float range;
+    public int health;
     public GameObject ProjectilePrefab;
     private Projectile p;
 
@@ -18,11 +18,6 @@ public class Ability_Projectile : Ability
     public override void Tick(float dt)
     {
         base.Tick(dt);
-
-        if (status == EAbilityStatus.In_Execution && p != null)
-        {
-            p.Tick();
-        }
     }
 
     public override void Activate(GameObject owner, Transform target = null)
@@ -38,17 +33,16 @@ public class Ability_Projectile : Ability
             p = projectile.GetComponent<Projectile>();
             if (p == null)
                 p = projectile.AddComponent<Projectile>();
-            p.m_Origin = owner.transform.position;
+
             p.m_Direction = owner.gameObject.CompareTag("Player") ? owner.GetComponent<PlayerController>().GetLookAtDirection() : owner.transform.forward;//
+            p.m_Origin = owner.transform.position + p.m_Direction + Vector3.up;
             p.m_Damage = damage;
             p.m_Speed = speed;
             p.m_Size = size;
-            p.m_Range = range;
+            p.m_Health = health;
             //TODO: We could probably save some frames by caching this stuff... 
             p.m_LayerMask = owner.gameObject.CompareTag("Player") ? 1 << LayerMask.NameToLayer("Enemy") : LayerMask.NameToLayer("Player");    //What layers do we want to be able to collide with? 
             p.Initialize();
-
-            //(owner.transform.position, direction, speed, size, range, damage))
 
             projectile.name = this.name + "_projectile";
             projectile.gameObject.layer = owner.layer;
