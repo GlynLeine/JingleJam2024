@@ -277,6 +277,7 @@ Shader "Toon/TFF_CustomGrass"
 			float _WindScroll;
 			float _WindJitter;
 			float _Color1Level;
+			float _Padding;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
 				float _TessValue;
@@ -657,6 +658,7 @@ Shader "Toon/TFF_CustomGrass"
 			float _WindScroll;
 			float _WindJitter;
 			float _Color1Level;
+			float _Padding;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
 				float _TessValue;
@@ -935,6 +937,7 @@ Shader "Toon/TFF_CustomGrass"
 			float _WindScroll;
 			float _WindJitter;
 			float _Color1Level;
+			float _Padding;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
 				float _TessValue;
@@ -1187,6 +1190,7 @@ Shader "Toon/TFF_CustomGrass"
 			float _WindScroll;
 			float _WindJitter;
 			float _Color1Level;
+			float _Padding;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
 				float _TessValue;
@@ -1430,6 +1434,7 @@ Shader "Toon/TFF_CustomGrass"
 			float _WindScroll;
 			float _WindJitter;
 			float _Color1Level;
+			float _Padding;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
 				float _TessValue;
@@ -1681,6 +1686,7 @@ Shader "Toon/TFF_CustomGrass"
 			float _WindScroll;
 			float _WindJitter;
 			float _Color1Level;
+			float _Padding;
 			#ifdef ASE_TESSELLATION
 				float _TessPhongStrength;
 				float _TessValue;
@@ -1946,6 +1952,7 @@ Shader "Toon/TFF_CustomGrass"
 			float _WindScroll;
 			float _WindJitter;
 			float _Color1Level;
+			float _Padding;
 			#ifdef ASE_TRANSMISSION
 				float _TransmissionShadow;
 			#endif

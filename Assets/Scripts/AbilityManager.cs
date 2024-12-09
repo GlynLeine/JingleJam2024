@@ -18,7 +18,7 @@ public class AbilityManager : MonoBehaviour
     {
         if (index > m_Abilities.Length)
         {
-            Debug.LogError("Invalid Index!");
+            Debug.Log($"Invalid Ability Index! {index}");
             return;
         }
         //Trigger the requested ability

@@ -112,10 +112,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         m_StateLastFrame = EPlayerState.Alive;
 
         m_AbilityManager = GetComponent<AbilityManager>();
-        if (m_AbilityManager.GetAbilityCount() < 3)
-        {
-            Debug.LogError("Player must have 3 abilities bound!");
-        }
     }
 
     private void Update()

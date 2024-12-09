@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     resolutionScale: 0.25
-    stepCount: 50
+    stepCount: 100
     fogDensity: 64
     scatteringCoefficients: {r: 1, g: 1, b: 1, a: 1}
     absorptionCoefficients: {r: 0, g: 0, b: 0, a: 1}

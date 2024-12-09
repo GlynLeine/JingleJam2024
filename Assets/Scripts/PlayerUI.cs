@@ -59,6 +59,11 @@ public class PlayerUI : MonoBehaviour
             //TODO: Fix later ;)
             for(int i = 0; i < m_AbilityManagerRef.GetAbilityCount(); i++)
             {
+                if (i >= m_SkillBars.Length || !m_SkillBars[i])
+                {
+                    continue;
+                }
+
                 Ability abl = m_AbilityManagerRef.GetAbilities()[i];
                 m_SkillBars[i].GetComponentsInChildren<TextMeshProUGUI>()[1].text = abl.name.ToString();
                 m_SkillBars[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text =abl.recastTimer.ToString("F2");
